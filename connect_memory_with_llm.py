@@ -43,11 +43,11 @@ def create_vector_store(data_dir="data", output_path="vectorstore/db_faiss"):
         
         print(f"✓ Loaded {len(documents)} pages\n")
         
-        # Split documents into chunks
+        # Split documents into smaller chunks for better retrieval
         print("✂️  Splitting documents into chunks...")
         text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=500,
-            chunk_overlap=100,
+            chunk_size=300,
+            chunk_overlap=150,
             separators=["\n\n", "\n", " ", ""]
         )
         chunks = text_splitter.split_documents(documents)
