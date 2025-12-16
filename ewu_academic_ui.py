@@ -208,7 +208,7 @@ class EWUAcademicUI:
         with st.chat_message("assistant"):
             try:
                 with st.spinner("🔍 Searching documents..."):
-                    result = self.assistant.query(prompt)
+                    result = self.assistant.query(prompt, normalize=True)
                     answer = result['answer']
                     
                     st.markdown(answer)

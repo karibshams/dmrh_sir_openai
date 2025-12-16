@@ -1,6 +1,6 @@
 """
 Script to create and save the FAISS vector store from PDF documents.
-Run this before starting the Streamlit app.
+Optimized chunking for 524-page EWU bulletin.
 """
 
 from langchain_community.document_loaders import PyPDFLoader
@@ -14,18 +14,13 @@ load_dotenv()
 
 def create_vector_store(data_dir="data", output_path="vectorstore/db_faiss"):
     """
-    Create and save FAISS vector store from PDF files.
-    
-    Args:
-        data_dir: Directory containing PDF files
-        output_path: Path where the vector store will be saved
+    Create FAISS vector store with optimal chunking for large academic documents.
     """
     try:
         print("\n" + "=" * 60)
         print("🔨 Building Vector Store from PDFs")
         print("=" * 60 + "\n")
         
-        # Load PDF documents
         print("📚 Loading PDF documents...")
         documents = []
         pdf_files = [f for f in os.listdir(data_dir) if f.endswith('.pdf')]
@@ -43,24 +38,30 @@ def create_vector_store(data_dir="data", output_path="vectorstore/db_faiss"):
         
         print(f"✓ Loaded {len(documents)} pages\n")
         
-        # Split documents into smaller chunks for better retrieval
+        # CRITICAL FIX: Larger chunks for academic structure
         print("✂️  Splitting documents into chunks...")
         text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=300,
-            chunk_overlap=150,
-            separators=["\n\n", "\n", " ", ""]
+            chunk_size=1000,  # INCREASED from 400
+            chunk_overlap=200,  # INCREASED from 150
+            separators=[
+                "\n\n",
+                "\nFaculty",
+                "\nCourses",
+                "\nDepartment",
+                "\n",
+                " ",
+                ""
+            ]
         )
         chunks = text_splitter.split_documents(documents)
         print(f"✓ Created {len(chunks)} chunks\n")
         
-        # Create embeddings
         print("🤖 Creating embeddings...")
         embedding_model = HuggingFaceEmbeddings(
             model_name="sentence-transformers/all-MiniLM-L6-v2"
         )
         print("✓ Embeddings ready\n")
         
-        # Create FAISS vector store
         print("📦 Building FAISS vector store...")
         vector_store = FAISS.from_documents(
             documents=chunks,
@@ -68,23 +69,20 @@ def create_vector_store(data_dir="data", output_path="vectorstore/db_faiss"):
         )
         print("✓ Vector store created\n")
         
-        # Create output directory if it doesn't exist
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         
-        # Save the vector store
         print(f"💾 Saving vector store to {output_path}...")
         vector_store.save_local(output_path)
         print("✓ Vector store saved\n")
         
         print("=" * 60)
-        print("✅ Vector store creation completed successfully!")
+        print("✅ Vector store creation completed!")
         print("=" * 60 + "\n")
-        print("You can now run: streamlit run ewu_academic_ui.py\n")
         
         return True
         
     except Exception as e:
-        print(f"\n❌ Error creating vector store: {e}\n")
+        print(f"\n❌ Error: {e}\n")
         import traceback
         traceback.print_exc()
         return False

@@ -1,0 +1,106 @@
+[
+  {
+    "role": "user",
+    "content": "hlw"
+  },
+  {
+    "role": "assistant",
+    "content": "This information is not available in the retrieved EWU documents."
+  },
+  {
+    "role": "user",
+    "content": "i need information regarding cse "
+  },
+  {
+    "role": "assistant",
+    "content": "East West University (EWU) offers a Bachelor of Science in Computer Science and Engineering (B.Sc. in CSE). The program focuses on software development, algorithms, systems, and projects. Here\u2019s a summary of the key components of the CSE program:\n\n### Course Structure:\n- **General Education:** 18 credits\n- **Math & Science:** 26 credits\n- **Core CSE Courses:** 62 credits\n- **Electives:** 20 credits\n- **Project:** 6 credits\n- **Total Credits Required:** 140 credits\n\n### Additional Information:\n- The program includes a capstone project (CSE 498) worth 6 credits.\n- The curriculum is designed to equip students with essential skills in computer science and engineering.\n\nFor more detailed course-wise and credit-wise information, please refer to the official EWU academic bulletin or contact the Department of Computer Science and Engineering directly.\n\nIf you have any specific questions or need further assistance, feel free to ask!"
+  },
+  {
+    "role": "user",
+    "content": "give me the course fee"
+  },
+  {
+    "role": "assistant",
+    "content": "East West University (EWU) uses a per-credit tuition fee model. Here are the approximate total costs for some major programs based on the latest information:\n\n- **B.Sc. in Civil Engineering**: ~1,035,900 BDT\n- **BBA**: ~917,400 BDT\n- **BSS in Economics**: ~820,400 BDT\n- **BA in English**: ~820,400 BDT\n- **LL.B (Hon\u2019s)**: ~927,000 BDT\n- **BSS in Information Studies**: ~758,400 BDT\n- **B.Sc. in CSE / EEE / ICE**: ~1,003,400 BDT\n- **B. Pharm.**: ~1,192,000 BDT\n\nPlease note that these totals include tuition fees, lab and activity fees, and an admission fee. Always check the latest official fee schedule for any updates."
+  },
+  {
+    "role": "user",
+    "content": "now break down the cse course structure"
+  },
+  {
+    "role": "assistant",
+    "content": "This information is not available in the retrieved EWU documents."
+  },
+  {
+    "role": "user",
+    "content": "give me the cse course code "
+  },
+  {
+    "role": "assistant",
+    "content": "The course codes for the Computer Science and Engineering (CSE) courses at East West University (EWU) mentioned in the context are as follows:\n\n- CSE 102: Introduction to Computers II\n- CSE 103: Structured Programming\n- CSE 106: Discrete Mathematics\n- CSE 302: Database Systems\n- CSE 326: Algorithms\n- CSE 405: Computer Networks\n\nIf you need more specific information about any of these courses, feel free to ask!"
+  },
+  {
+    "role": "user",
+    "content": "give me the all cse course code"
+  },
+  {
+    "role": "assistant",
+    "content": "The course codes for the Computer Science & Engineering (CSE) program at East West University (EWU) based on the provided context are as follows:\n\n1. CSE 101: Introduction to Computer Systems\n2. CSE 102: Introduction to Computers II\n3. CSE 103: Structured Programming\n4. CSE 106: Discrete Mathematics\n5. CSE 110: Programming Fundamentals\n6. CSE 111: Programming Lab\n7. CSE 120: Object Oriented Programming\n8. CSE 205: Data Structures\n9. CSE 206: Data Structures Lab\n10. CSE 210: Digital Logic Design\n11. CSE 211: DLD Lab\n12. CSE 220: Algorithms\n13. CSE 230: Computer Architecture\n14. CSE 240: Operating Systems\n15. CSE 250: Database Systems\n16. CSE 260: Software Engineering\n17. CSE 270: Computer Networks\n18. CSE 310: Compiler Design\n19. CSE 320: Artificial Intelligence\n20. CSE 330: Computer Graphics\n21. CSE 340: Cyber Security\n22. CSE 350: Machine Learning\n23. CSE 360: Web Engineering\n24. CSE 412: Software Engineering\n25. CSE 430: Software Testing and Quality Assurance\n26. CSE 464: Advanced Database System\n27. CSE 479: Web Programming\n\nIf you need more specific information about any of these courses, feel free to ask!"
+  },
+  {
+    "role": "user",
+    "content": "give me the 10 facullty  name of the cse "
+  },
+  {
+    "role": "assistant",
+    "content": "This information is not available in the retrieved EWU documents."
+  },
+  {
+    "role": "user",
+    "content": "faculty"
+  },
+  {
+    "role": "assistant",
+    "content": "East West University (EWU) has over 418 faculty members, with a diverse range of academic qualifications and expertise. The faculty includes approximately 30 full-time members across various ranks such as Professors, Associate Professors, Assistant Professors, and Senior Lecturers/Lecturers. Many faculty members are actively engaged in research, contributing to international publications, conference papers, and indexed journals in fields like management, finance, HRM, marketing, and organizational studies. \n\nThis information is not available in the retrieved EWU documents."
+  },
+  {
+    "role": "user",
+    "content": "give me the 10 faculty name of the cse department"
+  },
+  {
+    "role": "assistant",
+    "content": "This information is not available in the retrieved EWU documents."
+  },
+  {
+    "role": "user",
+    "content": "who is maheen "
+  },
+  {
+    "role": "assistant",
+    "content": "This information is not available in the retrieved EWU documents."
+  },
+  {
+    "role": "user",
+    "content": "who is the chairperson of the cse department"
+  },
+  {
+    "role": "assistant",
+    "content": "This information is not available in the retrieved EWU documents."
+  },
+  {
+    "role": "user",
+    "content": "please give me the breakdown of the cse courses"
+  },
+  {
+    "role": "assistant",
+    "content": "The specific course breakdown for the B.Sc. in Computer Science & Engineering (CSE) at East West University (EWU) is not fully detailed in the retrieved documents. However, it mentions that the program includes core courses, electives, and a capstone project. \n\nIf you would like, I can help extract more specific information regarding the course curriculum and structure. Just let me know!"
+  },
+  {
+    "role": "user",
+    "content": "please extract more specific informations about cse"
+  },
+  {
+    "role": "assistant",
+    "content": "Here is the specific information about the Computer Science & Engineering (CSE) program at East West University (EWU):\n\n### Program Overview\n- **Degree Offered**: Bachelor of Science (B.Sc.) in Computer Science and Engineering (CSE)\n- **Focus Areas**: Software development, algorithms, systems, and projects.\n\n### Credit Distribution\n- **Total Credits Required**: 140 credits\n  - **General Education**: 18 credits\n  - **Math & Science**: 26 credits\n  - **Core CSE Courses**: 62 credits\n  - **Electives**: 20 credits\n  - **Project/Internship**: 6 credits (CSE 498 Capstone Project)\n\n### Curriculum Structure\nThe curriculum is designed to meet contemporary industrial requirements and includes various specialized areas such as IoT and Blockchain.\n\nIf you need further details or specific course titles and credits, please let me know!"
+  }
+]

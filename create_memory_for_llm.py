@@ -74,29 +74,24 @@ class PromptManager:
         self.system_prompt = """You are an AI-powered Academic Assistant for East West University (EWU).
 
 INSTRUCTIONS:
-1. FIRST: Check if the answer exists in the provided EWU document context.
-2. If YES: Use the document information and refine it for clarity and completeness.
-3. If NO: You may use your general knowledge about EWU or academic institutions.
-4. Always prioritize EWU document information over general knowledge.
-5. For EWU-specific questions (courses, fees, departments, policies):
-   - Strongly prefer document context
-   - If not in documents, clearly indicate you're using general knowledge
-6. Provide clear, concise, and helpful answers.
-7. Maintain a professional and student-friendly tone."""
+1. Answer using the provided EWU document context.
+2. If context contains relevant information, use it and refine for clarity.
+3. If context is empty/irrelevant:
+   - Say clearly: "This information is not available in the retrieved EWU documents."
+   - Do NOT assume or use general knowledge for EWU-specific data (courses, fees, faculty, policies).
+4. For general academic questions, you may use general knowledge.
+5. Prioritize EWU document information always.
+6. Be concise and student-friendly."""
         
         self.custom_prompt_template = """{system_prompt}
 
-EWU Document Context (if available):
+EWU Document Context:
 {{context}}
 
-Student Question:
+Question:
 {{question}}
 
-Instructions:
-- If the context contains relevant information, use and refine it.
-- If context is limited or empty, use your knowledge about EWU.
-- For any EWU-specific information not in context, mention it's from general knowledge.
-- Keep answers clear, concise, and helpful."""
+Answer based on the context. If context is insufficient, state that clearly."""
     
     def get_template(self):
         return PromptTemplate(
@@ -105,9 +100,10 @@ Instructions:
         )
 
 class AcademicAssistant:
-    def __init__(self, db_path="vectorstore/db_faiss", model="gpt-4o-mini"):
+    def __init__(self, db_path="vectorstore/db_faiss", model="gpt-4o-mini", debug=False):
         self.db_path = db_path
         self.model = model
+        self.debug = debug
         self.embedding_manager = EmbeddingManager()
         self.vector_manager = VectorStoreManager(db_path=db_path)
         self.llm_manager = LLMManager(model=model)
@@ -135,8 +131,9 @@ class AcademicAssistant:
     def create_qa_chain(self):
         try:
             print("⛓️  Creating QA chain...")
+            # CRITICAL FIX: Increased k from 5 to 15 for large documents
             retriever = self.vector_manager.db.as_retriever(
-                search_kwargs={'k': 5}
+                search_kwargs={'k': 15}
             )
             prompt = self.prompt_manager.get_template()
             
@@ -150,24 +147,40 @@ class AcademicAssistant:
                 | StrOutputParser()
             )
             self.retriever = retriever
-            print("✓ QA chain created")
+            print("✓ QA chain created (k=15 for better recall)")
             return self.qa_chain
         except Exception as e:
             print(f"❌ Error: {e}")
             raise
     
-    def query(self, question):
+    def query(self, question, normalize=True):
         try:
             if not self.qa_chain:
                 raise ValueError("QA chain not initialized")
-            answer = self.qa_chain.invoke(question)
+            
+            # FIX 5: Question normalization for better retrieval
+            if normalize:
+                question_normalized = f"East West University EWU {question}"
+            else:
+                question_normalized = question
+            
+            # DEBUG: Print retrieved chunks
+            if self.debug:
+                print("\n🔍 Retrieved Chunks:")
+                docs = self.retriever.invoke(question_normalized)
+                for i, doc in enumerate(docs[:5], 1):
+                    print(f"\n[{i}] (relevance context)")
+                    print(doc.page_content[:300] + "...\n")
+            
+            answer = self.qa_chain.invoke(question_normalized)
             return {'answer': answer}
         except Exception as e:
             print(f"❌ Error: {e}")
             raise
 
 if __name__ == "__main__":
-    assistant = AcademicAssistant()
+    # Initialize with debug=True to see retrieved chunks
+    assistant = AcademicAssistant(debug=True)
     assistant.initialize()
     print("Type 'quit' to exit\n")
     while True:
