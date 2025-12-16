@@ -1,5 +1,6 @@
 from langchain_core.prompts import PromptTemplate
-from langchain.chains import RetrievalQA
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.output_parsers import StrOutputParser
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_openai import ChatOpenAI
@@ -102,6 +103,7 @@ class AcademicAssistant:
         self.llm_manager = LLMManager(model=model)
         self.prompt_manager = PromptManager()
         self.qa_chain = None
+        self.retriever = None
     
     def initialize(self):
         try:
@@ -123,13 +125,21 @@ class AcademicAssistant:
     def create_qa_chain(self):
         try:
             print("⛓️  Creating QA chain...")
-            self.qa_chain = RetrievalQA.from_chain_type(
-                llm=self.llm_manager.llm,
-                chain_type="stuff",
-                retriever=self.vector_manager.db.as_retriever(search_kwargs={'k': 3}),
-                return_source_documents=True,
-                chain_type_kwargs={'prompt': self.prompt_manager.get_template()}
+            # Create a simple retrieval chain using Runnable
+            retriever = self.vector_manager.db.as_retriever(search_kwargs={'k': 3})
+            prompt = self.prompt_manager.get_template()
+            
+            # Build the chain: retriever -> prompt -> llm
+            def format_docs(docs):
+                return "\n\n".join(doc.page_content for doc in docs)
+            
+            self.qa_chain = (
+                {"context": retriever | format_docs, "question": RunnablePassthrough()}
+                | prompt
+                | self.llm_manager.llm
+                | StrOutputParser()
             )
+            self.retriever = retriever  # Store retriever for getting source docs
             print("✓ QA chain created")
             return self.qa_chain
         except Exception as e:
@@ -140,10 +150,13 @@ class AcademicAssistant:
         try:
             if not self.qa_chain:
                 raise ValueError("QA chain not initialized")
-            response = self.qa_chain.invoke({'query': question})
+            # Get the answer from the chain
+            answer = self.qa_chain.invoke(question)
+            # Get source documents from the retriever
+            sources = self.retriever.invoke(question)
             return {
-                'answer': response["result"],
-                'sources': response["source_documents"]
+                'answer': answer,
+                'sources': sources
             }
         except Exception as e:
             print(f"❌ Error: {e}")
