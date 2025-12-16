@@ -231,6 +231,8 @@ class EWUAcademicUI:
             if st.button("🔄 New Chat", use_container_width=True):
                 st.session_state.messages = []
                 self.save_chat_history([])
+                if self.assistant:
+                    self.assistant.clear_memory()
                 st.rerun()
             
             if st.button("💾 Export Chat", use_container_width=True):
