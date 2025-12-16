@@ -73,27 +73,30 @@ class PromptManager:
     def __init__(self):
         self.system_prompt = """You are an AI-powered Academic Assistant for East West University (EWU).
 
-Your primary responsibility is to answer questions using the provided academic context from official EWU documents.
-
-Rules:
-- Always prioritize information from the provided context.
-- Answers must be short, clear, and directly related to the question.
-- Do NOT provide unnecessary explanations or long answers.
-- If the question is general (e.g., greetings), respond briefly and politely.
-- If the answer is not found in the context, you may use general academic knowledge ONLY if it does not involve EWU-specific rules, credits, fees, policies, or regulations.
-- Never invent or assume EWU policies, courses, credits, or academic rules.
-- If EWU-specific information is not available, clearly state that it is not found in the official documents.
-- Maintain an academic, student-friendly, and professional tone."""
+INSTRUCTIONS:
+1. FIRST: Check if the answer exists in the provided EWU document context.
+2. If YES: Use the document information and refine it for clarity and completeness.
+3. If NO: You may use your general knowledge about EWU or academic institutions.
+4. Always prioritize EWU document information over general knowledge.
+5. For EWU-specific questions (courses, fees, departments, policies):
+   - Strongly prefer document context
+   - If not in documents, clearly indicate you're using general knowledge
+6. Provide clear, concise, and helpful answers.
+7. Maintain a professional and student-friendly tone."""
         
         self.custom_prompt_template = """{system_prompt}
 
-Context:
+EWU Document Context (if available):
 {{context}}
 
-Question:
+Student Question:
 {{question}}
 
-Answer concisely and accurately. Prefer EWU document information.Limit the answer to what is necessary to address the question."""
+Instructions:
+- If the context contains relevant information, use and refine it.
+- If context is limited or empty, use your knowledge about EWU.
+- For any EWU-specific information not in context, mention it's from general knowledge.
+- Keep answers clear, concise, and helpful."""
     
     def get_template(self):
         return PromptTemplate(
@@ -132,11 +135,11 @@ class AcademicAssistant:
     def create_qa_chain(self):
         try:
             print("⛓️  Creating QA chain...")
-            # Create a simple retrieval chain using Runnable
-            retriever = self.vector_manager.db.as_retriever(search_kwargs={'k': 3})
+            retriever = self.vector_manager.db.as_retriever(
+                search_kwargs={'k': 5}
+            )
             prompt = self.prompt_manager.get_template()
             
-            # Build the chain: retriever -> prompt -> llm
             def format_docs(docs):
                 return "\n\n".join(doc.page_content for doc in docs)
             
@@ -146,7 +149,7 @@ class AcademicAssistant:
                 | self.llm_manager.llm
                 | StrOutputParser()
             )
-            self.retriever = retriever  # Store retriever for getting source docs
+            self.retriever = retriever
             print("✓ QA chain created")
             return self.qa_chain
         except Exception as e:
@@ -157,49 +160,28 @@ class AcademicAssistant:
         try:
             if not self.qa_chain:
                 raise ValueError("QA chain not initialized")
-            # Get the answer from the chain
             answer = self.qa_chain.invoke(question)
-            # Get source documents from the retriever
-            sources = self.retriever.invoke(question)
-            return {
-                'answer': answer,
-                'sources': sources
-            }
+            return {'answer': answer}
         except Exception as e:
             print(f"❌ Error: {e}")
             raise
-    
-    def format_output(self, result):
-        output = "\n" + "=" * 60
-        output += "\n📝 ANSWER:\n"
-        output += result['answer']
-        output += "\n\n" + "-" * 60
-        output += "\n📄 SOURCES:\n"
-        for i, doc in enumerate(result['sources'], 1):
-            output += f"\n{i}. {doc.metadata.get('source', 'Unknown')}\n"
-            output += f"   {doc.page_content[:150]}...\n"
-        output += "=" * 60 + "\n"
-        return output
-    
-    def interactive_session(self):
-        self.initialize()
-        print("Type 'quit' to exit\n")
-        while True:
-            try:
-                question = input("❓ Question: ").strip()
-                if question.lower() in ['quit', 'exit', 'q']:
-                    print("\n👋 Goodbye!")
-                    break
-                if not question:
-                    continue
-                result = self.query(question)
-                print(self.format_output(result))
-            except KeyboardInterrupt:
-                print("\n👋 Ended!")
-                break
-            except Exception as e:
-                print(f"❌ Error: {e}\n")
 
 if __name__ == "__main__":
     assistant = AcademicAssistant()
-    assistant.interactive_session()
+    assistant.initialize()
+    print("Type 'quit' to exit\n")
+    while True:
+        try:
+            question = input("❓ Question: ").strip()
+            if question.lower() in ['quit', 'exit', 'q']:
+                print("\n👋 Goodbye!")
+                break
+            if not question:
+                continue
+            result = assistant.query(question)
+            print(f"\n📝 Answer:\n{result['answer']}\n")
+        except KeyboardInterrupt:
+            print("\n👋 Ended!")
+            break
+        except Exception as e:
+            print(f"❌ Error: {e}\n")
