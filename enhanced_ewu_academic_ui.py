@@ -211,22 +211,24 @@ class EnhancedEWUAcademicUI:
             return None
     
     def extract_source_info(self, answer):
-        """Extract source and confidence from answer"""
+        """Extract source and confidence from answer - NEW FORMAT"""
         source = "GENERAL KNOWLEDGE"
         confidence = "MEDIUM"
         
-        if "[FROM EWU DOCUMENTS]" in answer:
+        # NEW FORMAT: [SOURCE: EWU_DOCUMENTS] [CONFIDENCE: HIGH]
+        if "[SOURCE: EWU_DOCUMENTS]" in answer:
             source = "EWU DOCUMENTS"
             confidence = "HIGH"
-        elif "[FROM GENERAL KNOWLEDGE]" in answer:
+        elif "[SOURCE: GENERAL_KNOWLEDGE]" in answer:
             source = "GENERAL KNOWLEDGE"
             confidence = "MEDIUM"
         
-        if "[HIGH CONFIDENCE]" in answer:
+        # Check for confidence tags
+        if "[CONFIDENCE: HIGH]" in answer:
             confidence = "HIGH"
-        elif "[MEDIUM CONFIDENCE]" in answer:
+        elif "[CONFIDENCE: MEDIUM]" in answer:
             confidence = "MEDIUM"
-        elif "[LOW CONFIDENCE]" in answer:
+        elif "[CONFIDENCE: LOW]" in answer:
             confidence = "LOW"
         
         return source, confidence
@@ -262,11 +264,20 @@ class EnhancedEWUAcademicUI:
                         unsafe_allow_html=True
                     )
                     
-                    # Display answer
+                    # Clean tags and display answer
                     clean_content = msg["content"]
-                    for tag in ["[FROM EWU DOCUMENTS]", "[FROM GENERAL KNOWLEDGE]", 
-                               "[HIGH CONFIDENCE]", "[MEDIUM CONFIDENCE]", "[LOW CONFIDENCE]"]:
-                        clean_content = clean_content.replace(tag, "")
+                    # Remove NEW format tags
+                    clean_content = clean_content.replace("[SOURCE: EWU_DOCUMENTS]", "")
+                    clean_content = clean_content.replace("[SOURCE: GENERAL_KNOWLEDGE]", "")
+                    clean_content = clean_content.replace("[CONFIDENCE: HIGH]", "")
+                    clean_content = clean_content.replace("[CONFIDENCE: MEDIUM]", "")
+                    clean_content = clean_content.replace("[CONFIDENCE: LOW]", "")
+                    # Remove OLD format tags (if any)
+                    clean_content = clean_content.replace("[FROM EWU DOCUMENTS]", "")
+                    clean_content = clean_content.replace("[FROM GENERAL KNOWLEDGE]", "")
+                    clean_content = clean_content.replace("[HIGH CONFIDENCE]", "")
+                    clean_content = clean_content.replace("[MEDIUM CONFIDENCE]", "")
+                    clean_content = clean_content.replace("[LOW CONFIDENCE]", "")
                     
                     st.markdown(clean_content.strip())
                 else:
@@ -279,7 +290,7 @@ class EnhancedEWUAcademicUI:
         
         with st.chat_message("assistant"):
             try:
-                with st.spinner("🔍 Searching EWU documents..."):
+                with st.spinner("🔍 Searching EWU documents + knowledge..."):
                     result = self.assistant.query(prompt)
                     answer = result['answer']
                     
@@ -299,9 +310,18 @@ class EnhancedEWUAcademicUI:
                     
                     # Clean and display answer
                     clean_content = answer
-                    for tag in ["[FROM EWU DOCUMENTS]", "[FROM GENERAL KNOWLEDGE]", 
-                               "[HIGH CONFIDENCE]", "[MEDIUM CONFIDENCE]", "[LOW CONFIDENCE]"]:
-                        clean_content = clean_content.replace(tag, "")
+                    # Remove NEW format tags
+                    clean_content = clean_content.replace("[SOURCE: EWU_DOCUMENTS]", "")
+                    clean_content = clean_content.replace("[SOURCE: GENERAL_KNOWLEDGE]", "")
+                    clean_content = clean_content.replace("[CONFIDENCE: HIGH]", "")
+                    clean_content = clean_content.replace("[CONFIDENCE: MEDIUM]", "")
+                    clean_content = clean_content.replace("[CONFIDENCE: LOW]", "")
+                    # Remove OLD format tags
+                    clean_content = clean_content.replace("[FROM EWU DOCUMENTS]", "")
+                    clean_content = clean_content.replace("[FROM GENERAL KNOWLEDGE]", "")
+                    clean_content = clean_content.replace("[HIGH CONFIDENCE]", "")
+                    clean_content = clean_content.replace("[MEDIUM CONFIDENCE]", "")
+                    clean_content = clean_content.replace("[LOW CONFIDENCE]", "")
                     
                     st.markdown(clean_content.strip())
                     
