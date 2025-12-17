@@ -9,7 +9,7 @@ load_dotenv()
 
 class EnhancedEWUAcademicUI:
     def __init__(self):
-        self.db_path = "vectorstore/db_faiss"
+        self.db_path = "vectorstore1/db_faiss"
         self.model = "gpt-4o-mini"
         self.assistant = None
         self.history_file = "chat_history.json"
