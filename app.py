@@ -75,6 +75,26 @@ st.markdown("""
         color: #ffffff !important;
     }
     
+    /* Sidebar expander content text */
+    [data-testid="stSidebar"] [data-testid="stExpander"] p,
+    [data-testid="stSidebar"] [data-testid="stExpander"] strong,
+    [data-testid="stSidebar"] [data-testid="stExpander"] span,
+    [data-testid="stSidebar"] [data-testid="stExpander"] label {
+        color: #ffffff !important;
+    }
+    
+    /* Sidebar code blocks */
+    [data-testid="stSidebar"] pre {
+        background-color: rgba(0, 82, 163, 0.3) !important;
+        color: #e5e5e5 !important;
+        border: 1px solid rgba(0, 102, 204, 0.5) !important;
+    }
+    
+    [data-testid="stSidebar"] code {
+        color: #e5e5e5 !important;
+        background-color: rgba(0, 82, 163, 0.3) !important;
+    }
+    
     /* Sidebar divider */
     [data-testid="stSidebar"] hr {
         border-color: rgba(255, 255, 255, 0.2) !important;
@@ -499,19 +519,29 @@ def render_sidebar():
         
         # Settings
         with st.expander("⚙️ Settings"):
-            st.markdown("""
-            <div style="color: #ffffff;">
-                <p style="font-weight: 600; margin-bottom: 1rem; color: #ffffff;"><strong>LLM Configuration:</strong></p>
-                <p style="margin: 0.5rem 0; color: #e5e5e5;">Model: <code style="background-color: rgba(255,255,255,0.1); color: #90caf9; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">gpt-4o-mini</code></p>
-                <p style="margin: 0.5rem 0; color: #e5e5e5;">Temperature: <code style="background-color: rgba(255,255,255,0.1); color: #90caf9; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">0.05</code></p>
-                <p style="margin: 0.5rem 0; color: #e5e5e5;">Max Tokens: <code style="background-color: rgba(255,255,255,0.1); color: #90caf9; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">3000</code></p>
-                <p style="margin: 0.5rem 0; color: #e5e5e5;">Retrieval k: <code style="background-color: rgba(255,255,255,0.1); color: #90caf9; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">60</code></p>
-                
-                <p style="font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #ffffff;"><strong>Embedding Model:</strong></p>
-                <p style="margin: 0.5rem 0; color: #e5e5e5;">sentence-transformers/all-MiniLM-L6-v2</p>
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown("<p style='color: inherit; font-weight: 600;'>🔧 LLM Configuration</p>", unsafe_allow_html=True)
             
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.markdown("<small style='color: inherit;'>**Model**</small>", unsafe_allow_html=True)
+                st.write("gpt-4o-mini")
+                
+                st.markdown("<small style='color: inherit;'>**Temperature**</small>", unsafe_allow_html=True)
+                st.write("0.05")
+            
+            with col2:
+                st.markdown("<small style='color: inherit;'>**Max Tokens**</small>", unsafe_allow_html=True)
+                st.write("3000")
+                
+                st.markdown("<small style='color: inherit;'>**Retrieval k**</small>", unsafe_allow_html=True)
+                st.write("60")
+            
+            st.divider()
+            st.markdown("<p style='color: inherit; font-weight: 600;'>🤖 Embedding Model</p>", unsafe_allow_html=True)
+            st.write("sentence-transformers/all-MiniLM-L6-v2")
+            
+            st.divider()
             if st.button("🔄 Reinitialize Assistant", use_container_width=True):
                 st.session_state.assistant_initialized = False
                 st.rerun()
