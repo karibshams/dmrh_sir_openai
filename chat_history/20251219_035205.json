@@ -1,0 +1,167 @@
+{
+  "id": "20251219_035205",
+  "title": "hlw i am karib i need help",
+  "created_at": "2025-12-19T04:03:09.232606",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hlw i am karib i need help",
+      "timestamp": "03:52 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello Karib! How can I assist you today? If you have specific questions about East West University, feel free to ask, and I'll do my best to provide you with the information you need.\n\n[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: HIGH]",
+      "timestamp": "03:52 AM"
+    },
+    {
+      "role": "user",
+      "content": "i want to admit in the cse department",
+      "timestamp": "03:52 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "To apply for admission to the Computer Science and Engineering (CSE) department at East West University (EWU), you need to meet the following requirements:\n\n1. **Admission Requirements**:\n   - You must have a minimum GPA of 3.00 in both SSC (Secondary School Certificate) and HSC (Higher Secondary Certificate) examinations, or equivalent qualifications.\n   - If you are an A-Level or O-Level applicant, you must meet specified grade criteria.\n   - You are required to pass the EWU admission test.\n\n2. **Tuition Fees**:\n   - The total credits required for the B.Sc. in Computer Science and Engineering program is 140 credits.\n   - The fee per credit is 6,500 BDT, leading to an approximate total tuition fee of 904,000 BDT, along with additional lab and activity fees of approximately 74,400 BDT and an admission fee of 25,000 BDT, bringing the grand total to around 1,003,400 BDT.\n\n3. **Program Structure**:\n   - The program includes core courses, electives, and a final year project.\n\nFor more detailed information, you can visit the official EWU website or contact the department directly.\n\n[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: HIGH]",
+      "timestamp": "03:52 AM"
+    },
+    {
+      "role": "user",
+      "content": "give me the curriculum and tuition fees",
+      "timestamp": "03:53 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The curriculum and tuition fees for the Computer Science and Engineering (CSE) program at East West University (EWU) are as follows:\n\n### Curriculum Overview\n- **Total Credits Required**: 140 credits\n- **Credit Distribution**:\n  - General Education: 18 credits\n  - Math & Science: 26 credits\n  - Core CSE Courses: 62 credits\n  - Electives: 20 credits\n  - Project: 6 credits\n\n### Tuition Fees\n- **Tuition Fee per Credit**: 6,500 BDT\n- **Total Tuition Fees**: Approximately 1,003,400 BDT\n- **Lab & Activity Fees**: Approximately 74,400 BDT\n- **Admission Fee**: 25,000 BDT\n- **Grand Total**: Approximately 1,103,800 BDT\n\nPlease note that the tuition fees may vary slightly by academic year or administrative updates, so it's advisable to check the latest official fee schedule for any changes.\n\n[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: HIGH]",
+      "timestamp": "03:53 AM"
+    },
+    {
+      "role": "user",
+      "content": "can u please share the Course Summery ",
+      "timestamp": "03:54 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The course summary for the Computer Science and Engineering (CSE) program at East West University (EWU) includes a structured curriculum designed to provide students with a comprehensive understanding of computer science principles and practices. Here\u2019s a brief overview of the curriculum:\n\n### Curriculum Overview:\n1. **General Education Requirements**: 18 credits\n   - Courses include subjects like English, Mathematics, and Social Sciences.\n\n2. **Mathematics and Basic Sciences**: 26 credits\n   - This includes courses in Mathematics, Physics, and Chemistry.\n\n3. **Core CSE Courses**: 62 credits\n   - Essential courses covering topics such as Programming, Data Structures, Algorithms, Software Engineering, and Database Management.\n\n4. **Electives**: 20 credits\n   - Students can choose from various elective courses to tailor their education to specific interests.\n\n5. **Project/Internship**: 6 credits\n   - Practical experience through a capstone project or internship.\n\n### Total Credits Required: 140 credits\n\nThis curriculum is designed to equip students with both theoretical knowledge and practical skills necessary for a successful career in the field of computer science and engineering.\n\nFor detailed course descriptions and specific course codes, please refer to the official EWU undergraduate bulletin or the CSE department's resources.\n\n[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: HIGH]",
+      "timestamp": "03:54 AM"
+    },
+    {
+      "role": "user",
+      "content": "east west university list of cse courses",
+      "timestamp": "03:55 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The list of courses for the Computer Science and Engineering (CSE) program at East West University (EWU) includes the following:\n\n1. CSE 121 - OOP Lab (1 credit)\n2. CSE 205 - Data Structures (3 credits)\n3. CSE 206 - Data Structures Lab (1 credit)\n4. CSE 210 - Digital Logic Design (3 credits)\n5. CSE 211 - DLD Lab (1 credit)\n6. CSE 220 - Algorithms (3 credits)\n7. CSE 230 - Computer Architecture (3 credits)\n8. CSE 240 - Operating Systems (3 credits)\n9. CSE 250 - Database Systems (3 credits)\n10. CSE 260 - Software Engineering (3 credits)\n11. CSE 270 - Computer Networks (3 credits)\n12. CSE 310 - Compiler Design (3 credits)\n13. CSE 320 - Artificial Intelligence (3 credits)\n14. CSE 330 - Computer Graphics (3 credits)\n15. CSE 340 - Cyber Security (3 credits)\n16. CSE 350 - Machine Learning (3 credits)\n17. CSE 360 - Web Engineering (3 credits)\n18. CSE Electives (20 credits) - Choose 6\u20137 courses from:\n   - Advanced AI\n   - Deep Learning\n   - Data Science\n   - Cloud Computing\n\nThis structured curriculum is designed to provide a comprehensive education in computer science and engineering principles. \n\n[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: HIGH]",
+      "timestamp": "03:55 AM"
+    },
+    {
+      "role": "user",
+      "content": "i want to take cse302 course what is the name of this course and the pre request?",
+      "timestamp": "03:55 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The course you are referring to, CSE302, is titled \"Database Systems.\" The prerequisite for this course is CSE106, which is \"Discrete Mathematics.\"\n\n[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: HIGH]",
+      "timestamp": "03:55 AM"
+    },
+    {
+      "role": "user",
+      "content": "List of Courses for CSE Department",
+      "timestamp": "03:56 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The list of courses for the Computer Science and Engineering (CSE) department at East West University (EWU) includes the following:\n\n1. CSE 121 - OOP Lab (1 credit)\n2. CSE 205 - Data Structures (3 credits)\n3. CSE 206 - Data Structures Lab (1 credit)\n4. CSE 210 - Digital Logic Design (3 credits)\n5. CSE 211 - DLD Lab (1 credit)\n6. CSE 220 - Algorithms (3 credits)\n7. CSE 230 - Computer Architecture (3 credits)\n8. CSE 240 - Operating Systems (3 credits)\n9. CSE 250 - Database Systems (3 credits)\n10. CSE 260 - Software Engineering (3 credits)\n11. CSE 270 - Computer Networks (3 credits)\n12. CSE 310 - Compiler Design (3 credits)\n13. CSE 320 - Artificial Intelligence (3 credits)\n14. CSE 330 - Computer Graphics (3 credits)\n15. CSE 340 - Cyber Security (3 credits)\n16. CSE 350 - Machine Learning (3 credits)\n17. CSE 360 - Web Engineering (3 credits)\n18. CSE Electives (20 credits) - Choose 6\u20137 courses from:\n   - Advanced AI\n   - Deep Learning\n   - Data Science\n   - Cloud Computing\n\nThis structured curriculum is designed to provide a comprehensive education in computer science and engineering. \n\n[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: HIGH]",
+      "timestamp": "03:56 AM"
+    },
+    {
+      "role": "user",
+      "content": "can u please share the 3rd  year courses list",
+      "timestamp": "03:56 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The specific list of courses for the third year of the Computer Science and Engineering (CSE) program at East West University (EWU) is not available in the provided documents. \n\nThis specific information is not available in provided EWU documents. \n\n[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: LOW]",
+      "timestamp": "03:56 AM"
+    },
+    {
+      "role": "user",
+      "content": "who is Mohammad Rezwanul Huq",
+      "timestamp": "03:57 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "Dr. Mohammad Rezwanul Huq is an Associate Professor in the Department of Business Administration at East West University (EWU). \n\n[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: HIGH]",
+      "timestamp": "03:57 AM"
+    },
+    {
+      "role": "user",
+      "content": "who is Ahmed Wasif Reza ",
+      "timestamp": "03:58 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "Ahmed Wasif Reza is a faculty member in the Department of Business Administration at East West University (EWU). \n\n[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: HIGH]",
+      "timestamp": "03:58 AM"
+    },
+    {
+      "role": "user",
+      "content": "who is Shamim H. Ripon  ",
+      "timestamp": "03:58 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "Shamim H. Ripon is a faculty member in the Department of Computer Science and Engineering at East West University (EWU). He holds the position of Professor.\n\n[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: HIGH]",
+      "timestamp": "03:58 AM"
+    },
+    {
+      "role": "user",
+      "content": "can u please share a table with 1st year course list for the cse department",
+      "timestamp": "03:59 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The first-year course list for the Computer Science and Engineering (CSE) department at East West University (EWU) includes the following courses:\n\n| Course Code | Course Title                                   | Credits |\n|-------------|------------------------------------------------|---------|\n| CSE 103     | Structured Programming                          | 4.5     |\n| CSE 106     | Discrete Mathematics                            | 3       |\n| CSE 110     | Object Oriented Programming                     | 4.5     |\n| CSE 200     | Computer-Aided Engineering Drawing              | 1       |\n| CSE 207     | Data Structures                                | 4       |\n| CSE 209     | Electrical Circuits                             | 4       |\n\nThese courses are designed to provide foundational knowledge and skills necessary for further studies in computer science and engineering.\n\n[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: HIGH]",
+      "timestamp": "03:59 AM"
+    },
+    {
+      "role": "user",
+      "content": "can u please share a table with 2nd year course list for the cse department",
+      "timestamp": "03:59 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The specific list of courses for the second year of the Computer Science and Engineering (CSE) program at East West University (EWU) is not available in the provided documents. \n\nThis specific information is not available in provided EWU documents. \n\n[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: LOW]",
+      "timestamp": "03:59 AM"
+    },
+    {
+      "role": "user",
+      "content": "Course Flowchart   1st Year 2nd Year 3rd Year 4th Year  the cse department",
+      "timestamp": "04:00 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The course flowchart for the Computer Science and Engineering (CSE) department at East West University (EWU) for the first year and second year is as follows:\n\n### 1st Year Courses\n| Semester | Course Code | Course Title                                      | Credits |\n|----------|-------------|--------------------------------------------------|---------|\n| 1st      | ENG101      | Basic English                                    | 3       |\n|          | MAT101      | Differential and Integral Calculus               | 3       |\n|          | CSE103      | Structured Programming                            | 3       |\n|          | CSE110      | Object Oriented Programming                       | 3       |\n|          | GEN226      | Emergence of Bangladesh                          | 3       |\n|          | ENG102      | Composition and Communication Skills              | 3       |\n|          | STA102      | Statistics and Probability                        | 3       |\n|          | CSE106      | Discrete Mathematics                              | 3       |\n|          | CSE200      | Computer-Aided Engineering Drawing                | 1       |\n|          | CSE207      | Data Structures                                  | 4       |\n|          | CSE209      | Electrical Circuits                              | 4       |\n\n### 2nd Year Courses\n| Semester | Course Code | Course Title                                      | Credits |\n|----------|-------------|--------------------------------------------------|---------|\n| 1st      | CSE251      | Electronic Circuits                              | 4       |\n|          | CSE345      | Digital Logic Design                             | 4       |\n|          | CSE347      | Information System Analysis and Design           | 4       |\n|          | CSE400      | Capstone Project-I                               | 1       |\n|          | CSE400      | Capstone Project-II                              | 2       |\n|          | CSE400      | Capstone Project-III                             | 3       |\n\nThis flowchart outlines the courses taken during the first and second years of the CSE program at EWU, including their respective credits.\n\n[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: HIGH]",
+      "timestamp": "04:00 AM"
+    },
+    {
+      "role": "user",
+      "content": "Graduation Requirements  Ggraduation Requirements for Undergraduate Programs ",
+      "timestamp": "04:02 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The graduation requirements for undergraduate programs at East West University (EWU) include the following:\n\n1. **Completion of Minimum Credits**: Students must complete the required number of credits for their specific degree program.\n2. **Minimum CGPA**: A minimum Cumulative Grade Point Average (CGPA) of 2.00 must be maintained.\n3. **Application for Graduation**: Students must apply to the Controller of Examinations stating their intention to be considered for the award of the Bachelor degree in the relevant discipline.\n4. **Payment of Graduation Fee**: A graduation fee is mandatory for every graduating applicant and is due at the time of submitting the application.\n5. **Settlement of Dues**: All university dues must be paid.\n6. **Return of University Properties**: All university properties must be returned.\n7. **Authentication of Previous Academic Records**: Previous academic records must be authenticated by the respective degree-awarding authority/institution.\n\nAdditionally, the university reserves the right to refuse the awarding of a degree on disciplinary grounds or if any fraud or forgery is found in the documents provided by the student.\n\n[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: HIGH]",
+      "timestamp": "04:02 AM"
+    },
+    {
+      "role": "user",
+      "content": "  Ggraduation Requirements for Undergraduate Programs for  Credit completion requirement for all departments make a table",
+      "timestamp": "04:02 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The graduation requirements for undergraduate programs at East West University (EWU) regarding credit completion vary by department. Here is a summary table of the credit completion requirements for various undergraduate programs:\n\n| Program                                      | Total Credits Required |\n|----------------------------------------------|------------------------|\n| Bachelor of Business Administration (BBA)    | 123 credits            |\n| Bachelor of Social Science in Economics (BSS)| 123 credits            |\n| Bachelor of Arts in English (BA)            | 130 credits            |\n| Bachelor of Laws (LL.B. Hons)                | 135 credits            |\n| Bachelor of Science in Computer Science & Engineering (B.Sc. in CSE) | 140 credits            |\n| Bachelor of Pharmacy (B.Pharm)               | 139 credits            |\n| Bachelor of Science in Civil Engineering (B.Sc. in CE) | 156.5 credits         |\n| Bachelor of Science in Electrical & Electronic Engineering (B.Sc. in EEE) | 140 credits            |\n| Bachelor of Science in Genetic Engineering & Biotechnology (B.Sc. in GEB) | 133 credits            |\n| Bachelor of Science in Data Science & Analytics | 130 credits          |\n\nThese requirements ensure that students complete the necessary coursework to qualify for graduation in their respective fields. \n\n[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: HIGH]",
+      "timestamp": "04:03 AM"
+    }
+  ]
+}
