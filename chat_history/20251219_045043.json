@@ -1,0 +1,187 @@
+{
+  "id": "20251219_045043",
+  "title": "hello i need help i am karib",
+  "created_at": "2025-12-19T05:02:51.320510",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hello i need help i am karib",
+      "timestamp": "04:50 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "\u274c This information is not available in provided EWU documents.  \n[CONFIDENCE: HIGH]",
+      "timestamp": "04:50 AM"
+    },
+    {
+      "role": "user",
+      "content": "i want to admit in the cse department",
+      "timestamp": "04:51 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "\u274c This information is not available in provided EWU documents.  \n[CONFIDENCE: HIGH]",
+      "timestamp": "04:51 AM"
+    },
+    {
+      "role": "user",
+      "content": "Graduation Requirements  Graduation Requirements for Undergraduate Programs ",
+      "timestamp": "04:51 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "Graduation requirements for undergraduate programs at East West University include the following credit completion requirements:\n\n- BBA - a minimum of 123 credits\n- BSS in Economics - a minimum of 123 credits\n- BA in English - a minimum of 123 credits\n- BSS in Sociology - 123 credits\n- BSS in ISLM - 123 credits\n- LL.B (Honours) - 135 credits\n- BS in APS - 127 credits\n- B.Sc. in CSE - 140 credits\n- B.Sc. in ETE - 140 credits\n- B.Sc. in ICE - 140 credits\n- B.Sc in EEE - 140 credits [Page 23, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\n[CONFIDENCE: HIGH]",
+      "timestamp": "04:51 AM"
+    },
+    {
+      "role": "user",
+      "content": "List of Courses of the cse department",
+      "timestamp": "04:52 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the list of courses from the Computer Science and Engineering department at East West University:\n\n| Course Code | Course Title                     | Credits |\n|-------------|----------------------------------|---------|\n| CSE 121     | OOP Lab                          | 1       |\n| CSE 205     | Data Structures                  | 3       |\n| CSE 206     | Data Structures Lab              | 1       |\n| CSE 210     | Digital Logic Design             | 3       |\n| CSE 211     | DLD Lab                          | 1       |\n| CSE 220     | Algorithms                       | 3       |\n| CSE 230     | Computer Architecture            | 3       |\n| CSE 240     | Operating Systems                | 3       |\n| CSE 250     | Database Systems                 | 3       |\n| CSE 260     | Software Engineering             | 3       |\n| CSE 270     | Computer Networks                | 3       |\n| CSE 310     | Compiler Design                  | 3       |\n| CSE 320     | Artificial Intelligence          | 3       |\n| CSE 330     | Computer Graphics                | 3       |\n| CSE 340     | Cyber Security                   | 3       |\n| CSE 350     | Machine Learning                 | 3       |\n| CSE 360     | Web Engineering                  | 3       |\n| D. CSE Electives (20 credits) | Choose 6\u20137 courses from: \u2022 Advanced AI \u2022 Deep Learning |         |\n\n[Page 11, Source: Doc1.pdf]  \n[CONFIDENCE: HIGH]",
+      "timestamp": "04:52 AM"
+    },
+    {
+      "role": "user",
+      "content": "Course Flowchart   1st Year 2nd Year 3rd Year 4th Year   Course (Credit) Pre requisite  Course Pre requisite  Course Pre requisite  Course Pre requisite  of the cse department",
+      "timestamp": "04:53 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the course flowchart for the Computer Science and Engineering department at East West University:\n\n| Course Code | Course Title                     | Credits | Pre-requisite |\n|-------------|----------------------------------|---------|---------------|\n| 1st Semester | ENG101 Basic English             | 3       |               |\n|             | GEN226 Emergence of Bangladesh    | 3       |               |\n|             | MAT101 Differential and Integral Calculus | 3 |               |\n|             | CSE103 Structured Programming     | 3+1.5=4.5 |               |\n| 2nd Semester | CSE207 Data Structures           | 3+1=4   | CSE103        |\n|             | CSE400 Capstone Project-I        | 0+1=1   |               |\n| 3rd Semester | CSE326 Algorithms                | 3+1.5=4.5 | CSE207       |\n|             | CSE405 Computer-Aided Engineering Drawing | 0+1=1 |               |\n| 4th Semester | CSE407 Green Computing           | 3       | CSE405        |\n\nThis flowchart outlines the sequence of courses to be followed during the four years of study in the Computer Science and Engineering program at EWU. [Page 120, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf]\n\n[CONFIDENCE: HIGH]",
+      "timestamp": "04:53 AM"
+    },
+    {
+      "role": "user",
+      "content": "who is Maheen Islam ",
+      "timestamp": "04:54 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "Dr. Maheen Islam is an Associate Professor and Chairperson at East West University [Page 48, Source: Doc1.pdf]. \n\n[CONFIDENCE: HIGH]",
+      "timestamp": "04:54 AM"
+    },
+    {
+      "role": "user",
+      "content": "Faculty Members of the Department of Computer Science and  Engineering (CSE) ",
+      "timestamp": "04:54 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "Here are the faculty members of the Department of Computer Science and Engineering at East West University:\n\n| Name                       | Qualifications                                                                 |\n|----------------------------|-------------------------------------------------------------------------------|\n| Shamim H. Ripon            | Ph.D. in Computer Science (University of Southampton, UK)                    |\n|                            | M.Sc. in Computer Science (National University of Singapore)                  |\n|                            | B.Sc. Eng. in Computer Science and Engineering (Khulna University, Bangladesh)|\n| Md. Nawab Yousuf Ali      | Ph.D. in Computer Science and Engineering (Jahangirnagar University)         |\n|                            | M.Sc. in Computer Engineering (L\u2019vov Polytechnic Institute, Lvov, Ukraine, USSR) |\n| Maheen Islam               | Ph.D. in Computer Science and Engineering (University of Dhaka)              |\n|                            | M.Sc. in Computer Science (University of Dhaka)                               |\n|                            | B.Sc. (Hon\u2019s) in Computer Science (University of Dhaka)                      |\n| Mohammad Rezwanul Huq      | Ph.D. in Computer Science (University of Twente, The Netherlands)            |\n|                            | M.Sc. in Computer Engineering (Kyung Hee University, South Korea)            |\n|                            | B.Sc. in Computer Science and Information Technology (Islamic University of Technology) |\n| Anisur Rahman              | Ph.D. in Information & Communication Technology (Griffith University, Australia) |\n|                            | MS in Computer Information System (University of Phoenix, USA)               |\n|                            | B.Sc. in Civil and Environmental Engineering (Middle East Technical University, Turkey) |\n| Mostofa Rafid Uddin       | M.Sc. in Computer Science and Engineering (On going) (Bangladesh University of Engineering and Technology) |\n|                            | B.Sc. in Computer Science and Engineering (Bangladesh University of Engineering and Technology) |\n| Muhit Islam Emon          | M.Sc. in Computer Science and Engineering (On going) (Bangladesh University of Engineering and Technology) |\n|                            | B.Sc. in Computer Science and Engineering (Bangladesh University of Engineering and Technology) |\n| Masiath Mubassira         | B.Sc. in Computer Science and Engineering (Chancellor\u2019s Gold Medalist) (East West University, Bangladesh) |\n| Jesan Ahammed Ovi         | M.Sc. in Computer Science and Engineering (University of Dhaka)              |\n|                            | B.Sc. in Computer Science and Engineering (University of Dhaka)              |\n| Linta Islam               | M.Sc. in Computer Science and Engineering (University of Dhaka)              |\n| Sadia Nowrin              | MS in Computer Science and Engineering (University of Dhaka)                 |\n|                            | B.Sc. (Hons) in Computer Science and Engineering (University of Dhaka)       |\n| Shakila Mahjabin Tonni    | M.Sc. in Computer Science and Engineering (Jahangirnagar University)         |\n|                            | B.Sc. in Computer Science and Engineering (Jahangirnagar University)         |\n| Musharrat Khan            | M.Sc. in Computer Science (The University of Lethbridge, Alberta, Canada)    |\n|                            | B.Sc. Electrical and Electronic Engineering (East West University)            |\n| Mahamudul Hasan           | M.Sc. in Computer Science and Engineering (University of Dhaka)              |\n|                            | B.Sc. in Computer Science and Engineering (University of Dhaka)              |\n| Sadia Sharmin             | Masters of Science in Software Engineering (IIT, University of Dhaka)        |\n|                            | Bachelor of Science in Software Engineering                                   |\n\n[Page 121-125, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf]\n\n[CONFIDENCE: HIGH]",
+      "timestamp": "04:55 AM"
+    },
+    {
+      "role": "user",
+      "content": "tell me about Department of Electrical and Electronic Engineering (EEE) ",
+      "timestamp": "04:56 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The Department of Electrical and Electronic Engineering (EEE) at East West University plays a vital role in modern civilization, impacting almost all aspects of human life. The department offers a B.Sc. program in EEE aimed at producing engineering leaders who are compassionate and ethical members of society. \n\nThe vision statement of the department is to create excellent engineers instilled with quality education, human values, and professional ethics [Page 127, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\nThe B.Sc. in EEE program is accredited by the Board of Accreditation for Engineering and Technical Education (BAETE) under the Institution of Engineers, Bangladesh (IEB) [Page 55, Source: Doc1.pdf]. \n\n[CONFIDENCE: HIGH]",
+      "timestamp": "04:57 AM"
+    },
+    {
+      "role": "user",
+      "content": "Graduate Attributes (GA) or Program Outcomes (PO) for the B.Sc. in EEE: ",
+      "timestamp": "04:57 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "\u274c This information is not available in provided EWU documents.  \n[CONFIDENCE: HIGH]",
+      "timestamp": "04:57 AM"
+    },
+    {
+      "role": "user",
+      "content": "can u please give me the Knowledge Profile of the eee department",
+      "timestamp": "04:57 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "\u274c This information is not available in provided EWU documents.  \n[CONFIDENCE: HIGH]",
+      "timestamp": "04:58 AM"
+    },
+    {
+      "role": "user",
+      "content": " Flow-Chart for Courses to be followed during the FOUR YEARS of the Undergraduate Program  of EEE (Numbers in parentheses indicate Credits) ",
+      "timestamp": "04:58 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the flow-chart for courses to be followed during the four years of the undergraduate program of EEE (numbers in parentheses indicate credits):\n\n| Semester | Year I | Year II | Year III | Year IV |\n|----------|--------|---------|----------|---------|\n| I        |        |         |          |         |\n| II       |        |         |          |         |\n| III      |        |         |          |         |\n| IV       |        |         |          |         |\n\n[Page 134, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf]  \n[CONFIDENCE: HIGH]",
+      "timestamp": "04:58 AM"
+    },
+    {
+      "role": "user",
+      "content": "Faculty Members of the Department of Electrical and  Electronic Engineering (EEE)",
+      "timestamp": "04:58 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "\u274c This information is not available in provided EWU documents.  \n[CONFIDENCE: HIGH]",
+      "timestamp": "04:58 AM"
+    },
+    {
+      "role": "user",
+      "content": "who is Halima Begum",
+      "timestamp": "04:58 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "Halima Begum is an Assistant Professor with the following qualifications: D.Engg in Computer Science and Design Engineering from Yamaguchi University, Japan, and M.Engg in Electrical and Electronic Engineering from Yamaguchi University, Japan [Page 138, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf]. \n\n[CONFIDENCE: HIGH]",
+      "timestamp": "04:58 AM"
+    },
+    {
+      "role": "user",
+      "content": "can u please give me course list of the eee department",
+      "timestamp": "04:59 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "\u274c This information is not available in provided EWU documents.  \n[CONFIDENCE: HIGH]",
+      "timestamp": "04:59 AM"
+    },
+    {
+      "role": "user",
+      "content": "Bachelor of Pharmacy: Courses ",
+      "timestamp": "05:00 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The courses offered for the Bachelor of Pharmacy (B. Pharm) degree are listed as follows:\n\n| Course Code | Course Title | Credits |\n|-------------|--------------|---------|\n| PHRM 101    | Physical Chemistry with Pharmacy Application | 3       |\n| ...         | ...          | ...     |\n\n(Note: The complete course list is not provided in the context, and only a sample course is mentioned. For a detailed overview, please refer to the Course Catalog.) [Page 23, Source: Doc1.pdf]\n\n\u274c This information is not available in the provided EWU documents.  \n[CONFIDENCE: HIGH]",
+      "timestamp": "05:00 AM"
+    },
+    {
+      "role": "user",
+      "content": "can u please give me the ore Requirement  of the b.pharm ",
+      "timestamp": "05:01 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The core requirement for the Bachelor of Pharmacy (B. Pharm) degree is as follows:\n\n| Course Code | Course Title                       | Credits |\n|-------------|------------------------------------|---------|\n| PHRM 101    | Physical Pharmacy I                | 4       |\n| PHRM 102    | Cell Biology and Anatomy           | 3       |\n| PHRM 103    | Organic Pharmacy I                 | 4       |\n| PHRM 201    | Human Physiology I                 | 4       |\n| PHRM 202    | Basic Microbiology                 | 4       |\n| PHRM 203    | Pharmaceutical Analysis I          | 4       |\n| PHRM 210    | Pharmaceutics I                   | 3       |\n| PHRM 211    | Pharmaceutical Chemistry I         | 4       |\n| PHRM 301    | Pharmacognosy                      | 4       |\n| PHRM 302    | Pharmaceutical Analysis II         | 4       |\n| PHRM 303    | Pharmaceutics II                  | 3       |\n| PHRM 310    | Toxicology                         | 4       |\n| PHRM 401    | Clinical Pharmacy                  | 4       |\n| PHRM 402    | Pharmaceutical Engineering          | 3       |\n| PHRM 403    | Pharmaceutical Management          | 3       |\n| PHRM 404    | Pharmacy Practice                  | 4       |\n| PHRM 405    | Pharmaceutical Research/Project    | 5       |\n\nTotal Core Requirement Credits: 140 [Page 143, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf]\n\n[CONFIDENCE: HIGH]",
+      "timestamp": "05:01 AM"
+    },
+    {
+      "role": "user",
+      "content": "can u please give me the Flowchart for courses to be followed during four (4) years of the undergraduate program of Pharmacy ",
+      "timestamp": "05:01 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The flowchart for courses to be followed during the four (4) years of the undergraduate program of Pharmacy is as follows:\n\n| Course Code | Credits |\n|-------------|---------|\n| Year I     |         |\n| ENG 101    | 3       |\n| MAT 100    | 3       |\n| PHRM 101   | 4       |\n| PHRM 102   | 3       |\n| PHRM 103   | 4       |\n| PHRM 202   | 4       |\n| Year II    |         |\n| GEN 226    | 3       |\n| PHRM 205   | 4       |\n| PHRM 207   | 4       |\n| PHRM 208   | 4       |\n| PHRM 210   | 4       |\n| Year III   |         |\n| PHRM 305   | 4       |\n| PHRM 306   | 4       |\n| PHRM 307   | 3       |\n| PHRM 308   | 4       |\n| PHRM 309   | 4       |\n| Year IV    |         |\n| PHRM 403   | 3       |\n| PHRM 404   | 5       |\n| PHRM 405   | 3       |\n| PHRM 406   | 4       |\n| PHRM 411   | 4       |\n| PHRM 412   | 3       |\n| PHRM 413   | 4       |\n| PHRM 414   | 3       |\n\n[Page 144, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf]  \n[CONFIDENCE: HIGH]",
+      "timestamp": "05:01 AM"
+    },
+    {
+      "role": "user",
+      "content": "please give me the Faculty Members of the Department of Pharmacy",
+      "timestamp": "05:02 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The faculty members of the Department of Pharmacy are as follows:\n\n- Dr. Chowdhury Faiz Hossain, Professor\n- Dr. Shamsun Nahar Khan, Professor\n- Dr. Md. Amirul Islam, Chairperson & Professor\n- Dr. Farhana Rizwan, Associate Professor [Page 21, Source: Doc1.pdf]\n\n[CONFIDENCE: HIGH]",
+      "timestamp": "05:02 AM"
+    }
+  ]
+}
