@@ -25,7 +25,7 @@ class EmbeddingManager:
             raise
 
 class VectorStoreManager:
-    def __init__(self, db_path="vectorstore/db_faiss", embedding_model=None):
+    def __init__(self, db_path="vectorstore1/db_faiss", embedding_model=None):
         self.db_path = db_path
         self.embedding_model = embedding_model
         self.db = None
@@ -156,7 +156,7 @@ RESPONSE (MUST include source and confidence tags):"""
         )
 
 class AcademicAssistant:
-    def __init__(self, db_path="vectorstore/db_faiss", model="gpt-4o-mini"):
+    def __init__(self, db_path="vectorstore1/db_faiss", model="gpt-4o-mini"):
         self.db_path = db_path
         self.model = model
         self.embedding_manager = EmbeddingManager()

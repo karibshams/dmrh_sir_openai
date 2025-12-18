@@ -291,7 +291,7 @@ def initialize_assistant():
     try:
         with st.spinner("🔧 Initializing EWU Academic Assistant..."):
             assistant = AcademicAssistant(
-                db_path=os.getenv("VECTOR_STORE_PATH", "vectorstore/db_faiss"),
+                db_path=os.getenv("VECTOR_STORE_PATH", "vectorstore1/db_faiss"),
                 model=os.getenv("LLM_MODEL", "gpt-4o-mini")
             )
             assistant.initialize()
