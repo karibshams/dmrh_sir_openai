@@ -1,6 +1,7 @@
 """
 Streamlit UI for EWU Academic Assistant - Claude.ai Style Interface
 Scalable and production-ready chat interface with chat history
+EWU Branded Colors & Fixed Input Issues
 """
 
 import streamlit as st
@@ -18,182 +19,226 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for Claude.ai-like appearance
-st.markdown("""
+# EWU Brand Colors
+EWU_PRIMARY = "#003366"      # Dark Blue (EWU Primary)
+EWU_SECONDARY = "#CC0000"    # Red (EWU Secondary)
+EWU_LIGHT = "#E8F0F7"        # Light Blue
+EWU_DARK = "#1a1a1a"         # Dark background
+EWU_TEXT = "#0d0d0d"         # Dark text
+EWU_ACCENT = "#0066CC"       # Accent Blue
+
+# Custom CSS for Claude.ai-like appearance with EWU colors
+st.markdown(f"""
 <style>
-    * {
+    * {{
         margin: 0;
         padding: 0;
-    }
+    }}
     
     /* Main container */
-    .main {
+    .main {{
         background-color: #ffffff;
-        color: #0d0d0d;
-    }
+        color: {EWU_TEXT};
+    }}
     
-    /* Sidebar styling */
-    [data-testid="stSidebar"] {
-        background-color: #1a1a1a;
-        color: #ececf1;
-    }
+    /* Sidebar styling - EWU Dark Theme */
+    [data-testid="stSidebar"] {{
+        background: linear-gradient(135deg, {EWU_PRIMARY} 0%, #004d7a 100%);
+        color: #ffffff;
+    }}
     
-    [data-testid="stSidebar"] > div {
-        background-color: #1a1a1a;
-    }
+    [data-testid="stSidebar"] > div {{
+        background: linear-gradient(135deg, {EWU_PRIMARY} 0%, #004d7a 100%);
+    }}
+    
+    /* Sidebar text */
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] {{
+        color: #ffffff !important;
+    }}
     
     /* Chat messages styling */
-    .chat-message {
+    .chat-message {{
         padding: 1.5rem;
         border-radius: 0.75rem;
         margin-bottom: 1rem;
         display: flex;
         gap: 1rem;
-    }
+    }}
     
-    .user-message {
-        background-color: #f0f0f0;
+    .user-message {{
+        background-color: {EWU_LIGHT};
         justify-content: flex-end;
-    }
+    }}
     
-    .assistant-message {
-        background-color: #ffffff;
-        border: 1px solid #e5e5e5;
-    }
+    .assistant-message {{
+        background-color: #f7f7f8;
+        border-left: 4px solid {EWU_PRIMARY};
+    }}
     
-    .message-content {
-        max-width: 80%;
+    .message-content {{
+        max-width: 85%;
         word-wrap: break-word;
-    }
+    }}
     
-    .user-message .message-content {
-        background-color: #0d66d0;
+    .user-message .message-content {{
+        background: linear-gradient(135deg, {EWU_PRIMARY} 0%, {EWU_ACCENT} 100%);
         color: white;
         padding: 1rem;
         border-radius: 0.75rem;
-    }
+        box-shadow: 0 2px 8px rgba(0, 51, 102, 0.15);
+    }}
     
-    .assistant-message .message-content {
-        color: #0d0d0d;
-    }
+    .assistant-message .message-content {{
+        color: {EWU_TEXT};
+        padding: 0.5rem 0;
+    }}
     
     /* Input area */
-    .input-container {
+    .input-container {{
         background-color: #ffffff;
-        border-top: 1px solid #e5e5e5;
+        border-top: 2px solid {EWU_PRIMARY};
         padding: 1.5rem;
         position: sticky;
         bottom: 0;
-    }
+    }}
     
-    /* Buttons */
-    .new-chat-btn {
-        background-color: #2a2a2a;
-        color: #ececf1;
+    /* Buttons - EWU Primary Color */
+    .new-chat-btn {{
+        background: linear-gradient(135deg, {EWU_PRIMARY} 0%, #004d7a 100%);
+        color: white;
         border: none;
         padding: 0.75rem 1rem;
         border-radius: 0.5rem;
         cursor: pointer;
         width: 100%;
         margin-bottom: 1rem;
-        font-weight: 500;
-    }
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }}
     
-    .new-chat-btn:hover {
-        background-color: #3a3a3a;
-    }
+    .new-chat-btn:hover {{
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 51, 102, 0.3);
+    }}
     
-    .chat-history-item {
+    .chat-history-item {{
         padding: 0.75rem;
         border-radius: 0.5rem;
         margin-bottom: 0.5rem;
         cursor: pointer;
-        transition: background-color 0.2s;
-    }
+        transition: all 0.2s;
+        color: #ffffff;
+    }}
     
-    .chat-history-item:hover {
-        background-color: #2a2a2a;
-    }
+    .chat-history-item:hover {{
+        background-color: rgba(255, 255, 255, 0.15);
+        transform: translateX(5px);
+    }}
     
-    .chat-history-item.active {
-        background-color: #444444;
-    }
+    .chat-history-item.active {{
+        background: linear-gradient(90deg, {EWU_SECONDARY} 0%, rgba(204, 0, 0, 0.7) 100%);
+        border-left: 3px solid {EWU_SECONDARY};
+    }}
     
-    /* Source tags */
-    .source-tag {
+    /* Source tags - EWU Themed */
+    .source-tag {{
         display: inline-block;
-        padding: 0.25rem 0.75rem;
-        background-color: #e5e5e5;
-        color: #0d0d0d;
+        padding: 0.35rem 0.75rem;
+        background-color: {EWU_LIGHT};
+        color: {EWU_PRIMARY};
         border-radius: 0.25rem;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         margin-right: 0.5rem;
         margin-bottom: 0.5rem;
-        font-weight: 500;
-    }
+        font-weight: 600;
+        border-left: 3px solid {EWU_PRIMARY};
+    }}
     
-    .source-ewu {
-        background-color: #d4edda;
+    .source-ewu {{
+        background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
         color: #155724;
-    }
+        border-left: 3px solid #28a745;
+    }}
     
-    .source-general {
-        background-color: #fff3cd;
+    .source-general {{
+        background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
         color: #856404;
-    }
+        border-left: 3px solid #ffc107;
+    }}
     
     /* Loading animation */
-    .loading-dots {
+    .loading-dots {{
         display: inline-flex;
         gap: 0.25rem;
-    }
+    }}
     
-    .loading-dots span {
+    .loading-dots span {{
         width: 0.5rem;
         height: 0.5rem;
         border-radius: 50%;
-        background-color: #0d66d0;
+        background: linear-gradient(135deg, {EWU_PRIMARY} 0%, {EWU_ACCENT} 100%);
         animation: bounce 1.4s infinite;
-    }
+    }}
     
-    .loading-dots span:nth-child(1) {
+    .loading-dots span:nth-child(1) {{
         animation-delay: 0s;
-    }
+    }}
     
-    .loading-dots span:nth-child(2) {
+    .loading-dots span:nth-child(2) {{
         animation-delay: 0.2s;
-    }
+    }}
     
-    .loading-dots span:nth-child(3) {
+    .loading-dots span:nth-child(3) {{
         animation-delay: 0.4s;
-    }
+    }}
     
-    @keyframes bounce {
-        0%, 100% {
+    @keyframes bounce {{
+        0%, 100% {{
             opacity: 0.3;
-        }
-        50% {
+        }}
+        50% {{
             opacity: 1;
-        }
-    }
+        }}
+    }}
+    
+    /* Text input styling */
+    input[type="text"] {{
+        border: 2px solid {EWU_LIGHT} !important;
+        border-radius: 0.5rem !important;
+    }}
+    
+    input[type="text"]:focus {{
+        border: 2px solid {EWU_PRIMARY} !important;
+        box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1) !important;
+    }}
     
     /* Scrollbar styling */
-    ::-webkit-scrollbar {
+    ::-webkit-scrollbar {{
         width: 8px;
-    }
+    }}
     
-    ::-webkit-scrollbar-track {
+    ::-webkit-scrollbar-track {{
         background: #f1f1f1;
-    }
+    }}
     
-    ::-webkit-scrollbar-thumb {
-        background: #888;
+    ::-webkit-scrollbar-thumb {{
+        background: {EWU_PRIMARY};
         border-radius: 4px;
-    }
+    }}
     
-    ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
+    ::-webkit-scrollbar-thumb:hover {{
+        background: {EWU_SECONDARY};
+    }}
+    
+    /* Header styling */
+    h1, h2, h3 {{
+        color: {EWU_PRIMARY} !important;
+    }}
+    
+    /* Divider */
+    hr {{
+        border-top: 2px solid {EWU_PRIMARY} !important;
+    }}
 </style>
 """, unsafe_allow_html=True)
 
@@ -291,7 +336,7 @@ def initialize_assistant():
     try:
         with st.spinner("🔧 Initializing EWU Academic Assistant..."):
             assistant = AcademicAssistant(
-                db_path=os.getenv("VECTOR_STORE_PATH", "vectorstore1/db_faiss"),
+                db_path=os.getenv("VECTOR_STORE_PATH", "vectorstore/db_faiss"),
                 model=os.getenv("LLM_MODEL", "gpt-4o-mini")
             )
             assistant.initialize()
@@ -334,6 +379,7 @@ def render_sidebar():
     """Render the sidebar with chat history"""
     with st.sidebar:
         st.markdown("### 🎓 EWU Academic Assistant")
+        st.markdown(f"<small>East West University</small>", unsafe_allow_html=True)
         
         # New Chat Button
         if st.button("➕ New Chat", use_container_width=True, key="new_chat_btn"):
@@ -407,18 +453,20 @@ def render_chat_message(message):
     if is_user:
         st.markdown(f"""
         <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
-            <div style="background-color: #0d66d0; color: white; padding: 1rem; border-radius: 0.75rem; max-width: 80%;">
+            <div style="background: linear-gradient(135deg, #003366 0%, #0066CC 100%); color: white; padding: 1rem; border-radius: 0.75rem; max-width: 80%; box-shadow: 0 2px 8px rgba(0, 51, 102, 0.15);">
                 <p style="margin: 0;">{message['content']}</p>
-                <small style="opacity: 0.7; font-size: 0.85rem;">{message.get('timestamp', '')}</small>
+                <small style="opacity: 0.8; font-size: 0.85rem;">{message.get('timestamp', '')}</small>
             </div>
         </div>
         """, unsafe_allow_html=True)
     else:
+        # Format assistant message with source tags
+        content = message['content']
         st.markdown(f"""
         <div style="margin-bottom: 1rem;">
-            <div style="background-color: #f7f7f8; padding: 1rem; border-radius: 0.75rem; border: 1px solid #e5e5e5;">
-                <p style="margin: 0 0 0.5rem 0;">{message['content']}</p>
-                <small style="opacity: 0.6; font-size: 0.85rem;">{message.get('timestamp', '')}</small>
+            <div style="background-color: #f7f7f8; padding: 1rem; border-radius: 0.75rem; border-left: 4px solid #003366;">
+                <div style="color: #0d0d0d; line-height: 1.6;">{content}</div>
+                <small style="opacity: 0.6; font-size: 0.85rem; margin-top: 0.5rem; display: block;">{message.get('timestamp', '')}</small>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -441,21 +489,22 @@ def main():
     
     # Display current chat title
     if st.session_state.current_chat_id:
-        st.caption(f"Chat ID: {st.session_state.current_chat_id}")
+        st.caption(f"📌 Chat ID: {st.session_state.current_chat_id}")
     
     # Display chat messages
     messages_container = st.container()
     with messages_container:
         if not st.session_state.messages:
-            st.markdown("""
-            <div style="text-align: center; padding: 2rem; color: #8a8a8a;">
-                <h2>👋 Welcome to EWU Academic Assistant</h2>
-                <p>Ask me anything about East West University academic programs, courses, faculty, and requirements.</p>
-                <p style="margin-top: 1rem; font-size: 0.9rem;">
-                    <em>Example questions:</em><br>
+            st.markdown(f"""
+            <div style="text-align: center; padding: 3rem 2rem; color: #666; background: linear-gradient(135deg, #E8F0F7 0%, #f0f4f8 100%); border-radius: 1rem; border: 2px dashed #003366;">
+                <h2 style="color: #003366;">👋 Welcome to EWU Academic Assistant</h2>
+                <p style="font-size: 1.1rem; margin-top: 1rem;">Ask me anything about East West University academic programs, courses, faculty, and requirements.</p>
+                <p style="margin-top: 1.5rem; font-size: 0.95rem; color: #555;">
+                    <em><strong>Example questions:</strong></em><br>
                     • What are CSE course requirements?<br>
                     • Who are the faculty members in the Engineering department?<br>
-                    • What is the fee structure for 2024?
+                    • What is the fee structure for 2024?<br>
+                    • Show me the 1st year courses for CSE
                 </p>
             </div>
             """, unsafe_allow_html=True)
@@ -463,24 +512,26 @@ def main():
             for message in st.session_state.messages:
                 render_chat_message(message)
     
-    # Input area
+    # Input area - FIXED VERSION
     st.markdown("---")
     
-    col1, col2 = st.columns([0.95, 0.05])
-    
-    with col1:
-        user_input = st.text_input(
-            "Type your question...",
-            placeholder="Ask about courses, faculty, fees, requirements...",
-            label_visibility="collapsed",
-            key="user_input"
-        )
-    
-    with col2:
-        send_button = st.button("📤", help="Send message", use_container_width=True)
+    # Create a form for proper Enter key handling
+    with st.form(key='chat_form', clear_on_submit=True):
+        col1, col2 = st.columns([0.95, 0.05])
+        
+        with col1:
+            user_input = st.text_input(
+                "Type your question...",
+                placeholder="Ask about courses, faculty, fees, requirements...",
+                label_visibility="collapsed",
+                key="user_input"
+            )
+        
+        with col2:
+            send_button = st.form_submit_button("📤", help="Send message")
     
     # Process user input
-    if send_button and user_input.strip():
+    if send_button and user_input and user_input.strip():
         # Add user message
         user_message = {
             'role': 'user',
