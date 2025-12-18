@@ -499,16 +499,20 @@ def render_sidebar():
         
         # Settings
         with st.expander("⚙️ Settings"):
-            st.write("**LLM Configuration:**")
-            st.write(f"- Model: `gpt-4o-mini`")
-            st.write(f"- Temperature: `0.05`")
-            st.write(f"- Max Tokens: `3000`")
-            st.write(f"- Retrieval k: `60`")
+            st.markdown("""
+            <div style="color: #ffffff;">
+                <p style="font-weight: 600; margin-bottom: 1rem; color: #ffffff;"><strong>LLM Configuration:</strong></p>
+                <p style="margin: 0.5rem 0; color: #e5e5e5;">Model: <code style="background-color: rgba(255,255,255,0.1); color: #90caf9; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">gpt-4o-mini</code></p>
+                <p style="margin: 0.5rem 0; color: #e5e5e5;">Temperature: <code style="background-color: rgba(255,255,255,0.1); color: #90caf9; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">0.05</code></p>
+                <p style="margin: 0.5rem 0; color: #e5e5e5;">Max Tokens: <code style="background-color: rgba(255,255,255,0.1); color: #90caf9; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">3000</code></p>
+                <p style="margin: 0.5rem 0; color: #e5e5e5;">Retrieval k: <code style="background-color: rgba(255,255,255,0.1); color: #90caf9; padding: 0.25rem 0.5rem; border-radius: 0.25rem;">60</code></p>
+                
+                <p style="font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #ffffff;"><strong>Embedding Model:</strong></p>
+                <p style="margin: 0.5rem 0; color: #e5e5e5;">sentence-transformers/all-MiniLM-L6-v2</p>
+            </div>
+            """, unsafe_allow_html=True)
             
-            st.write("\n**Embedding Model:**")
-            st.write("- sentence-transformers/all-MiniLM-L6-v2")
-            
-            if st.button("🔄 Reinitialize Assistant"):
+            if st.button("🔄 Reinitialize Assistant", use_container_width=True):
                 st.session_state.assistant_initialized = False
                 st.rerun()
 
@@ -564,13 +568,6 @@ def main():
             <div class="welcome-box">
                 <h2>👋 Welcome to EWU Academic Assistant</h2>
                 <p style="font-size: 1.1rem; margin-top: 1rem;">Ask me anything about East West University academic programs, courses, faculty, and requirements.</p>
-                <p style="margin-top: 1.5rem; font-size: 0.95rem;">
-                    <em><strong>Example questions:</strong></em><br>
-                    • What are CSE course requirements?<br>
-                    • Who are the faculty members in the Engineering department?<br>
-                    • What is the fee structure for 2024?<br>
-                    • Show me the 1st year courses for CSE
-                </p>
             </div>
             """, unsafe_allow_html=True)
         else:
