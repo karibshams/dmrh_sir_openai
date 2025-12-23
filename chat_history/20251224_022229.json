@@ -1,0 +1,27 @@
+{
+  "id": "20251224_022229",
+  "title": "hlw i need help for my course",
+  "created_at": "2025-12-24T02:23:24.861913",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hlw i need help for my course",
+      "timestamp": "02:22 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "[SOURCE: GENERAL_KNOWLEDGE] [CONFIDENCE: LOW]\n\nHello! It seems you are looking for assistance with your course at East West University. While I don't have specific details about your course from the provided documents, I recommend reaching out to your course instructor or academic advisor for tailored support. They can provide guidance on course materials, assignments, and any other academic concerns you may have. If you have specific questions or topics you need help with, feel free to ask!",
+      "timestamp": "02:22 AM"
+    },
+    {
+      "role": "user",
+      "content": "i wanted to know about the ewu and admisioin process",
+      "timestamp": "02:23 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "[SOURCE: EWU_DOCUMENTS] [CONFIDENCE: HIGH]\n\nEast West University (EWU) offers a comprehensive admission process for prospective students. Applicants can fill out online admission forms available on the EWU website by paying Tk. 1,000. For foreign students, the admission form fee is $13.00, payable via International Money Order in favor of EWU. \n\nTo qualify for admission, candidates must pass an admission test, which assesses their English language skills (including structure, vocabulary, comprehension, and composition) and basic mathematics. The dates for these tests are announced in major daily newspapers. Additionally, applicants must submit copies of their Marks Certificates/Transcripts and Testimonials from SSC & HSC or \u201cO\u201d & \u201cA\u201d levels during the admission process.\n\nFor more detailed information, you can visit the official EWU admission website at [http://admission.ewubd.edu](http://admission.ewubd.edu).",
+      "timestamp": "02:23 AM"
+    }
+  ]
+}
