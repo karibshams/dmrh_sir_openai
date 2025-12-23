@@ -1,0 +1,67 @@
+{
+  "id": "20251224_045147",
+  "title": "hello i am karib i need help ",
+  "created_at": "2025-12-24T05:03:02.565457",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hello i am karib i need help ",
+      "timestamp": "04:51 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello Karib! How can I assist you today? If you have a question related to East West University (EWU), please let me know, and I'll provide you with the information you need from the official documents.",
+      "timestamp": "04:51 AM"
+    },
+    {
+      "role": "user",
+      "content": "i want to admit in to the cse department how can i do",
+      "timestamp": "05:00 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "This specific information about EWU is not available in the provided documents. I can only provide information that's documented in the official EWU bulletin and materials.",
+      "timestamp": "05:01 AM"
+    },
+    {
+      "role": "user",
+      "content": "1.\tWhat is the minimum CGPA required to graduate from EWU?",
+      "timestamp": "05:01 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The minimum CGPA required to graduate from East West University (EWU) is as follows:\n\n1. For a Bachelor's degree, students must earn at least a minimum CGPA of 2.00 [Page 24, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n2. Additionally, for students in certain programs, a minimum CGPA of 2.50 is required for their base degree [Page 24, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\nThis information is documented in the official EWU bulletin. \n\n[CONFIDENCE: HIGH]",
+      "timestamp": "05:01 AM"
+    },
+    {
+      "role": "user",
+      "content": "What is the mission of East West University and how does it guide academic programs",
+      "timestamp": "05:02 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The mission of East West University (EWU) is to promote eastern culture and values while blending them meaningfully with western thoughts and innovations. As an institution of higher learning, EWU aims to inculcate ethical standards, values, and norms in its students, striving to uphold ideals such as equal opportunity, transparency, and non-discrimination. The primary mission is to provide tertiary education at a reasonable cost in a range of subjects that are particularly relevant to current and anticipated societal needs. Central to this mission is the commitment to provide students with opportunities, resources, and expertise necessary for their academic and professional success [Page 14, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\nThis mission guides academic programs by ensuring that the curriculum is designed to meet societal needs and to equip students with the skills and knowledge required in a rapidly changing world. The focus on ethical standards and values also influences the teaching methodologies and the overall educational environment at EWU, fostering a culture of responsibility and social awareness among students [CONFIDENCE: HIGH].",
+      "timestamp": "05:02 AM"
+    },
+    {
+      "role": "user",
+      "content": "22.\tWhat happens if my CGPA falls below the minimum requirement",
+      "timestamp": "05:02 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "If your CGPA falls below the minimum requirement at East West University (EWU), the following consequences apply:\n\n1. **Probation**: \n   - If your CGPA is between 1.00 and 2.00 after the first two semesters (or any subsequent semesters), you will be placed on probation for the next two semesters. \n   - You must raise your CGPA to at least 2.00 by the end of the probation period. \n\n2. **Dismissal**: \n   - If you fail to raise your CGPA to at least 2.00 after the probation period, you will be dismissed from the university. \n   - Additionally, if your CGPA falls below 1.00 after the first two semesters (or any subsequent semesters), you will be automatically dismissed from the university [Page 216, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf; Page 7, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\n3. **Restrictions**: \n   - Students who are on probation or subject to dismissal are not allowed to drop a semester or take a leave of absence [Page 216, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\nThese policies are in place to ensure that students maintain satisfactory academic progress. If you have further questions or need assistance, feel free to ask! \n\n[CONFIDENCE: HIGH]",
+      "timestamp": "05:02 AM"
+    },
+    {
+      "role": "user",
+      "content": "Which elective courses can a CSE student choose from?",
+      "timestamp": "05:02 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "The elective courses available for a Computer Science and Engineering (CSE) student at East West University (EWU) are as follows:\n\n### Elective Courses for CSE Students\n\n1. **CSE225: Numerical Methods**\n   - Credits: 3+1=4\n   - Prerequisite: CSE103 Structured Programming\n\n2. **CSE313: Theory of Computations**\n   - Credits: 3+0=3\n   - Prerequisite: CSE326 Algorithms\n\n3. **CSE460: Cryptography**\n   - Credits: 3+0=3\n   - Prerequisite: CSE326 Algorithms\n\n4. **CSE471: Compiler Design**\n   - Credits: 3+1=4\n   - Prerequisite: CSE326 Algorithms\n\n5. **CSE483: Graph Theory**\n   - Credits: 3+0=3\n   - Prerequisite: CSE326 Algorithms\n\n6. **CSE484: Computational Geometry**\n   - Credits: 3+0=3\n   - Prerequisite: CSE326 Algorithms\n\n7. **CSE445: Computer Vision**\n   - Credits: 3+1=4\n   - Prerequisite: CSE326 Algorithms\n\n8. **CSE452: Distributed Systems and Algorithms**\n   - Credits: 3+1=4\n   - Prerequisite: CSE221 Operating Systems\n\n9. **CSE474: Pattern Recognition**\n   - Credits: 3+1=4\n   - Prerequisite: CSE366 Artificial Intelligence\n\n10. **CSE475: Machine Learning**\n    - Credits: 3+1=4\n    - Prerequisite: CSE366 Artificial Intelligence\n\n11. **CSE477: Data Mining**\n    - Credits: 3+1=4\n    - Prerequisite: CSE366 Artificial Intelligence\n\n12. **CSE481: Nature-Inspired Computing**\n    - Credits: 3+1=4\n    - Prerequisite: CSE326 Algorithms\n\n13. **CSE486: Bioinformatics Algorithms**\n    - Credits: 3+1=4\n    - Prerequisite: CSE326 Algorithms\n\n14. **CSE488: Big Data Analytics**\n    - Credits: 3+1=4\n    - Prerequisite: CSE302 Database Systems\n\n### Summary\nThese elective courses allow CSE students to specialize in various areas of computer science and engineering, enhancing their knowledge and skills in specific fields. \n\n[Page 119, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf; Page 22, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf]\n\n[CONFIDENCE: HIGH]",
+      "timestamp": "05:03 AM"
+    }
+  ]
+}
