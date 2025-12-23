@@ -21,13 +21,13 @@ st.markdown("""
     }
     
     .main {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
         padding: 0;
     }
     
     [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        border-right: 3px solid #e94560;
+        background: linear-gradient(180deg, #1e3a5f 0%, #2c4a6d 50%, #1e3a5f 100%);
+        border-right: 3px solid #2c4a6d;
     }
     
     [data-testid="stSidebar"] > div {
@@ -46,19 +46,19 @@ st.markdown("""
     }
     
     [data-testid="stSidebar"] button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        background: linear-gradient(135deg, #2c4a6d 0%, #3d5a7c 100%) !important;
         border: none !important;
         color: #ffffff !important;
         border-radius: 12px !important;
         padding: 0.75rem 1rem !important;
         font-weight: 600 !important;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+        box-shadow: 0 4px 15px rgba(44, 74, 109, 0.4) !important;
     }
     
     [data-testid="stSidebar"] button:hover {
         transform: translateY(-3px) scale(1.02) !important;
-        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6) !important;
+        box-shadow: 0 8px 25px rgba(44, 74, 109, 0.6) !important;
     }
     
     [data-testid="stSidebar"] [data-testid="stExpander"] {
@@ -69,7 +69,7 @@ st.markdown("""
     }
     
     [data-testid="stSidebar"] hr {
-        border-color: rgba(233, 69, 96, 0.3) !important;
+        border-color: rgba(44, 74, 109, 0.3) !important;
         margin: 1.5rem 0 !important;
     }
     
@@ -94,7 +94,7 @@ st.markdown("""
     }
     
     .user-message {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #2c4a6d 0%, #3d5a7c 100%);
         color: white;
         margin-left: auto;
         margin-right: 0;
@@ -103,12 +103,12 @@ st.markdown("""
     }
     
     .assistant-message {
-        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-        color: #1a1a2e;
+        background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+        color: #1e3a5f;
         margin-left: 0;
         margin-right: auto;
         max-width: 90%;
-        border-left: 5px solid #667eea;
+        border-left: 5px solid #2c4a6d;
         border-bottom-left-radius: 5px;
     }
     
@@ -122,10 +122,10 @@ st.markdown("""
     .welcome-container {
         text-align: center;
         padding: 4rem 2rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #1e3a5f 0%, #2c4a6d 100%);
         border-radius: 30px;
         color: white;
-        box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 20px 60px rgba(30, 58, 95, 0.4);
         margin: 2rem 0;
         animation: fadeInScale 0.6s ease-out;
     }
@@ -187,7 +187,7 @@ st.markdown("""
     
     input[type="text"],
     textarea {
-        border: 2px solid #667eea !important;
+        border: 2px solid #2c4a6d !important;
         border-radius: 15px !important;
         padding: 1rem !important;
         transition: all 0.3s ease !important;
@@ -196,25 +196,25 @@ st.markdown("""
     
     input[type="text"]:focus,
     textarea:focus {
-        border: 2px solid #764ba2 !important;
-        box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1) !important;
+        border: 2px solid #3d5a7c !important;
+        box-shadow: 0 0 0 4px rgba(44, 74, 109, 0.1) !important;
         transform: scale(1.01) !important;
     }
     
     .stButton > button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        background: linear-gradient(135deg, #2c4a6d 0%, #3d5a7c 100%) !important;
         border: none !important;
         color: white !important;
         border-radius: 12px !important;
         padding: 0.75rem 2rem !important;
         font-weight: 600 !important;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+        box-shadow: 0 4px 15px rgba(44, 74, 109, 0.4) !important;
     }
     
     .stButton > button:hover {
         transform: translateY(-3px) scale(1.05) !important;
-        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6) !important;
+        box-shadow: 0 8px 25px rgba(44, 74, 109, 0.6) !important;
     }
     
     .citation-badge {
@@ -273,7 +273,7 @@ st.markdown("""
     }
     
     thead {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #2c4a6d 0%, #3d5a7c 100%);
         color: white;
     }
     
@@ -289,12 +289,12 @@ st.markdown("""
     }
     
     tbody tr:hover {
-        background: rgba(102, 126, 234, 0.05);
+        background: rgba(44, 74, 109, 0.05);
         transition: all 0.2s ease;
     }
     
     code {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        background: linear-gradient(135deg, #2c4a6d 0%, #3d5a7c 100%) !important;
         color: white !important;
         padding: 0.3rem 0.6rem !important;
         border-radius: 8px !important;
@@ -312,12 +312,12 @@ st.markdown("""
     }
     
     ::-webkit-scrollbar-thumb {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #2c4a6d 0%, #3d5a7c 100%);
         border-radius: 10px;
     }
     
     ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        background: linear-gradient(135deg, #3d5a7c 0%, #2c4a6d 100%);
     }
     
     .loading-animation {
@@ -329,7 +329,7 @@ st.markdown("""
         width: 0.7rem;
         height: 0.7rem;
         border-radius: 50%;
-        background: #667eea;
+        background: #2c4a6d;
         animation: bounce 1.4s infinite ease-in-out;
     }
     
@@ -349,19 +349,19 @@ st.markdown("""
     }
     
     h1, h2, h3, h4, h5, h6 {
-        color: #1a1a2e !important;
+        color: #1e3a5f !important;
         font-weight: 700 !important;
     }
     
     .stMarkdown a {
-        color: #667eea !important;
+        color: #2c4a6d !important;
         font-weight: 600 !important;
         text-decoration: none !important;
         transition: all 0.2s ease !important;
     }
     
     .stMarkdown a:hover {
-        color: #764ba2 !important;
+        color: #3d5a7c !important;
         text-decoration: underline !important;
     }
 </style>
@@ -577,31 +577,7 @@ def main():
     messages_container = st.container()
     with messages_container:
         if not st.session_state.messages:
-            st.markdown("""
-            <div class="welcome-container">
-                <h1>👋 Welcome to EWU Academic Assistant</h1>
-                <p>Your intelligent guide to East West University academic information</p>
-                
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h3>📚 Complete Information</h3>
-                        <p>Get comprehensive answers with full details from official documents</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>📖 Accurate Citations</h3>
-                        <p>Every fact backed by page numbers and source references</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>📊 Tables & Data</h3>
-                        <p>View complete course structures, requirements, and statistics</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>💡 Smart Assistance</h3>
-                        <p>Ask about courses, faculty, fees, policies, and more</p>
-                    </div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown('<div class="welcome-container"><h1>👋 Welcome to EWU Academic Assistant</h1><p>Your intelligent guide to East West University academic information</p><div class="feature-grid"><div class="feature-card"><h3>📚 Complete Information</h3><p>Get comprehensive answers with full details from official documents</p></div><div class="feature-card"><h3>📖 Accurate Citations</h3><p>Every fact backed by page numbers and source references</p></div><div class="feature-card"><h3>📊 Tables & Data</h3><p>View complete course structures, requirements, and statistics</p></div><div class="feature-card"><h3>💡 Smart Assistance</h3><p>Ask about courses, faculty, fees, policies, and more</p></div></div></div>', unsafe_allow_html=True)
         else:
             for message in st.session_state.messages:
                 render_chat_message(message)
