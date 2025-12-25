@@ -1,0 +1,77 @@
+{
+  "id": "20251226_020243",
+  "title": "hlw i am nobi ",
+  "created_at": "2025-12-26T02:33:33.389280",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hlw i am nobi ",
+      "timestamp": "02:02 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello Nobi! How can I assist you today? If you have any questions about East West University (EWU), feel free to ask!",
+      "timestamp": "02:02 AM"
+    },
+    {
+      "role": "user",
+      "content": "i want to admit in the cse department so what would be the step ",
+      "timestamp": "02:03 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "To gain admission to the Computer Science and Engineering (CSE) department at East West University (EWU), you will need to follow the steps outlined in the university's admission process. However, the specific details regarding the admission steps are not available in the provided EWU documents. \n\nThis specific information about EWU is not available in the provided documents. I can only provide information that's documented in the official EWU bulletin and materials. If you have any other questions or need information on a different topic related to EWU, feel free to ask!",
+      "timestamp": "02:03 AM"
+    },
+    {
+      "role": "user",
+      "content": "so what are the setps?",
+      "timestamp": "02:04 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "This specific information about EWU is not available in the provided documents. I can only provide information that's documented in the official EWU bulletin and materials.",
+      "timestamp": "02:04 AM"
+    },
+    {
+      "role": "user",
+      "content": "i want to admit in the ewu",
+      "timestamp": "02:04 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "To gain admission to East West University (EWU), you will need to follow the outlined admission process. Here are the steps based on the provided documents:\n\n1. **Online Application**: \n   - Applicants must fill out the online application form available on the EWU website (http://admission.ewubd.edu/).\n   - The application fee is Tk. 1,000 for local students and $13.00 for foreign students, payable via International Money Order in favor of EWU.\n\n2. **Admission Test**: \n   - All candidates must qualify in the EWU Admission Test. The date of the test will be announced in major daily newspapers.\n\n3. **Eligibility Criteria**: \n   - Candidates must have completed 12 years of schooling.\n   - For foreign students, acceptable qualifications include:\n     - SAT score of 1000, or\n     - Pass with at least upper 50% marks/grade in their own education system.\n   - Candidates from systems not equivalent to SSC/HSC or O/A Level must meet specific criteria as assessed by an equivalence committee.\n\n4. **Documentation**: \n   - During admission, candidates must submit copies of their marks certificates/transcripts and testimonials from SSC & HSC or \u201cO\u201d & \u201cA\u201d levels.\n\n5. **Minimum GPA Requirement**: \n   - Students must maintain a minimum GPA of 3.50 in each semester as a regular student. All undergraduate students must register for at least 9 credits in a semester (12 credits for B.Pharm. students) [Page 219, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\n6. **Disciplinary Code**: \n   - All students must abide by the East West University Disciplinary Code at all times [Page 219, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\nThis information provides a comprehensive overview of the admission process at EWU. If you have any further questions or need additional details, feel free to ask! [CONFIDENCE: HIGH]",
+      "timestamp": "02:04 AM"
+    },
+    {
+      "role": "user",
+      "content": "i completede diploma. in this momemt can i admision ",
+      "timestamp": "02:15 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "To determine your eligibility for admission to East West University (EWU) after completing a diploma, you will need to refer to the specific admission requirements outlined in the university's documents. \n\nAccording to the provided documents, students who have completed a two-year Bachelor's degree from a recognized university can apply for admission into the four-year undergraduate programs. However, there is no specific mention of diploma holders and their eligibility for admission. \n\nThis specific information about EWU is not available in the provided documents. I can only provide information that's documented in the official EWU bulletin and materials. If you have further questions or need assistance with other aspects of the admission process, feel free to ask!",
+      "timestamp": "02:15 AM"
+    },
+    {
+      "role": "user",
+      "content": "For EEE first semester cost",
+      "timestamp": "02:16 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "To provide you with the first semester cost for the Electrical and Electronic Engineering (EEE) program at East West University (EWU), I will extract the relevant information from the provided documents.\n\n### First Semester Cost for EEE Program\n\nThe following fees are applicable for the first semester of the EEE program:\n\n1. **Tuition Fees**: \n   - B. Sc. in EEE: Tk. 5,500 per credit [Page 19, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\n2. **Lab Fee**: \n   - Tk. 2,500 (non-refundable) per semester for CSE, ICE, ETE, EEE & GEB programs [Page 5, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\n3. **Student Activity Fee**: \n   - Tk. 510 (non-refundable) per semester for all other departments [Page 22, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\n4. **Document Verification Fee**: \n   - Tk. 50 for each document provided by the students (no fee for the first copy) [Page 4, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\n5. **Admission Fee**: \n   - Tk. 15,000 (one-time & non-refundable) [Page 17, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\n### Summary of Costs\n- **Tuition Fee**: Tk. 5,500 per credit (number of credits for the first semester will determine total tuition).\n- **Lab Fee**: Tk. 2,500.\n- **Student Activity Fee**: Tk. 510.\n- **Document Verification Fee**: Tk. 50 (for each document after the first).\n- **Admission Fee**: Tk. 15,000.\n\nPlease note that the total cost will depend on the number of credit hours you register for in the first semester. \n\nIf you need further details or specific calculations based on credit hours, feel free to ask! \n\n[CONFIDENCE: HIGH]",
+      "timestamp": "02:16 AM"
+    },
+    {
+      "role": "user",
+      "content": "can u also give me the details information about cse because i have also interested in the cse",
+      "timestamp": "02:33 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "To provide you with detailed information about the Computer Science and Engineering (CSE) program at East West University (EWU), I will extract the relevant information from the provided documents.\n\n### Overview of the B.Sc. in Computer Science and Engineering (CSE) Program\n\n#### Vision Statement\nTo be internationally renowned in Computer Science and Engineering and to exalt excellence in education, research, and industrial profession for sustainable transformation of society.\n\n#### Mission Statement\n- To advance knowledge and learning of evolving challenges in Computer Science and Engineering through quality education and research towards the development of society.\n- To sustain an outstanding hub dedicated to excellence in teaching, learning, and research and to become internationally recognized to meet national and international needs.\n- To enhance the quality of students with advanced knowledge and skills of Computer Science and Engineering to meet contemporary industrial requirements.\n\n#### Program Educational Objectives (PEOs)\nGraduates of the B.Sc. in Computer Science and Engineering (CSE) program are expected to attain the following Program Educational Objectives (PEOs) within a few years (3-5 years) of graduation:\n1. Graduates will establish themselves as leading computational professionals and continue to learn and address evolving challenges in Computer Science and Engineering.\n2. Graduates will engage in lifelong pursuit of knowledge and interdisciplinary learning for industrial, research, and academic careers.\n3. Graduates will contribute to sustainable development and the well-being of society through the use of Computer Science and Engineering principles, practices, and tools in an ethical and responsible manner. [Page 110, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf]\n\n#### Program Outcomes (POs)\nGraduates of the B.Sc. in Computer Science and Engineering (CSE) program are expected to attain the following Program Outcomes (POs) by the time of graduation:\n- **PO1**: Engineering knowledge\n- **PO2**: Problem analysis\n- **PO3**: Design/development of solutions\n- **PO4**: Investigation\n- **PO5**: Modern tool usage\n- **PO6**: The engineer and society\n- **PO7**: Environment and sustainability\n- **PO8**: Ethics\n- **PO9**: Individual and teamwork\n- **PO10**: Communication\n- **PO11**: Project management and finance\n- **PO12**: Lifelong learning [Page 110, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf]\n\n#### Curriculum Structure\nThe curriculum includes core courses, elective courses, and a capstone project. Here is a summary of the core courses:\n\n| Course Code | Course Title                                   | Credits | Prerequisite               |\n|-------------|------------------------------------------------|---------|----------------------------|\n| CSE103      | Structured Programming                          | 3+1.5=4.5 | None                       |\n| CSE106      | Discrete Mathematics                            | 3+0=3   | CSE103                     |\n| CSE110      | Object Oriented Programming                     | 3+1.5=4.5 | CSE106                     |\n| CSE207      | Data Structures                                | 3+1=4   | CSE110                     |\n| CSE221      | Operating Systems                               | 3+1=4   | CSE207                     |\n| CSE326      | Algorithms                                     | 3+1.5=4.5 | CSE207                     |\n| CSE302      | Database Systems                                | 3+1.5=4.5 | CSE106                     |\n| CSE405      | Computer Networks                               | 3+1=4   | CSE326                     |\n| CSE412      | Software Engineering                            | 3+1=4   | CSE347                     |\n| CSE430      | Software Testing and Quality Assurance         | 3+1=4   | CSE412                     |\n| CSE400      | Capstone Project                               | 0+3=3   | CSE405                     |\n\nThis table includes core courses along with their respective credits and prerequisites. [Page 115, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf]\n\n### Conclusion\nThe B.Sc. in Computer Science and Engineering program at EWU is designed to equip students with the necessary skills and knowledge to excel in the field of computer science and engineering. The program emphasizes both theoretical and practical aspects, preparing graduates for various career paths in the industry.\n\nIf you have any more specific questions or need further details, feel free to ask! [CONFIDENCE: HIGH]",
+      "timestamp": "02:33 AM"
+    }
+  ]
+}

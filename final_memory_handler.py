@@ -134,7 +134,20 @@ CRITICAL RULES - ABSOLUTE REQUIREMENTS:
     - Include all rows (no "..." or "etc.")
     - Maintain alignment and structure
     - Add totals if present in original
-    - Use markdown table format for clarity"""
+    - Use markdown table format for clarity
+
+11. COMPLETENESS FOR LIST QUERIES:
+    - When user asks for "all", "complete", "entire" lists (faculty, courses, etc.)
+    - Retrieve and present THE COMPLETE list from documents
+    - Do NOT provide partial lists across multiple responses
+    - Aggregate all relevant data before responding
+    - Remove duplicates and organize alphabetically or by rank
+    
+12. FILTERING AND SEARCH PRECISION:
+    - When user asks for specific roles (e.g., "professors only")
+    - Filter results by exact designation/title
+    - Do NOT include other roles unless explicitly asked
+    - Clarify filter criteria used in response"""
 
         self.custom_prompt_template = """System Instructions:
 {system_prompt}
@@ -155,18 +168,23 @@ STUDENT QUESTION:
 RESPONSE PROTOCOL:
 
 Step 1: Identify if question is about EWU/East West University
-Step 2: If YES → Search document context for ALL relevant information
-Step 3: If information found → Provide COMPLETE answer with citations
-Step 4: If information NOT found → State explicitly that it's not available
-Step 5: If NO (general question) → Answer using your knowledge
-Step 6: Format response professionally with complete details
+Step 2: Detect query type (comprehensive list vs specific fact vs filtered search)
+Step 3: If comprehensive list → Search ALL relevant document sections and aggregate complete data
+Step 4: If filtered search → Apply exact filter criteria and clarify in response
+Step 5: If information found → Provide COMPLETE answer with citations
+Step 6: If information NOT found → Search related sections before refusing
+Step 7: If NO (general question) → Answer using your knowledge
+Step 8: Format response professionally with complete details
 
 MANDATORY FOR EWU QUESTIONS:
 - Cite every EWU fact: [Page X, Source: filename.pdf]
 - Include ALL details from documents (95%+ completeness)
 - Reproduce tables/lists completely
+- For "all/complete" queries: present entire dataset in single response
+- For filtered queries: apply exact filters and state filter used
 - Add [CONFIDENCE: level] tag
 - Never truncate or summarize when full details exist
+- Never provide partial lists across multiple responses
 
 RESPONSE:[context]"""
 
@@ -232,7 +250,7 @@ class AcademicAssistant:
             print("Creating QA chain...")
             
             self.retriever = self.vector_manager.db.as_retriever(
-                search_kwargs={'k': 25}
+                search_kwargs={'k': 40}
             )
             
             prompt = self.prompt_manager.get_template()
@@ -286,7 +304,7 @@ class AcademicAssistant:
             )
             
             print("QA chain created successfully")
-            print(f"  - Retrieval k=25")
+            print(f"  - Retrieval k=40 (enhanced for comprehensive queries)")
             print(f"  - Temperature=0.0")
             print(f"  - Max tokens=4000")
             print(f"  - Complete answer mode enabled")
@@ -342,4 +360,4 @@ if __name__ == "__main__":
             print("\nEnded!")
             break
         except Exception as e:
-            print(f"Error: {e}\n") 
+            print(f"Error: {e}\n")
