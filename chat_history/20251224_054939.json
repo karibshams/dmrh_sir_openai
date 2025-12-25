@@ -1,7 +1,7 @@
 {
   "id": "20251224_054939",
   "title": "can you please share the course fee of all the dep...",
-  "created_at": "2025-12-24T06:07:05.196838",
+  "created_at": "2025-12-26T01:14:46.236750",
   "messages": [
     {
       "role": "user",
@@ -192,6 +192,16 @@
       "role": "assistant",
       "content": "Mohammad Rezwanul Huq is a faculty member in the Department of Computer Science and Engineering (CSE) at East West University (EWU). His academic qualifications are as follows:\n\n- **B.Sc. (Hon\u2019s) in Computer Science** from the University of Dhaka\n- **M.Sc. in Computer Science** from the University of Dhaka\n- **Ph.D. in Computer Science and Engineering** from the University of Dhaka [Page 121, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\nIf you need more information about his role or contributions at EWU, please let me know!",
       "timestamp": "06:07 AM"
+    },
+    {
+      "role": "user",
+      "content": "i want to admit in the ewu",
+      "timestamp": "01:14 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "To apply for admission to East West University (EWU), you need to follow these steps and meet the specified requirements:\n\n### Admission Requirements:\n1. **Application Process**:\n   - Online application forms are available on the EWU website (http://admission.ewubd.edu/).\n   - Applicants must fill out the admission forms online by paying Tk. 1,000. A set of sample questions and a prospectus will be provided after the payment.\n   - For foreign students, the fee for the admission form is $13.00, payable in International Money Order in favor of EWU [Page 176, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\n2. **Eligibility Criteria**:\n   - Applicants must have completed 12 years of schooling.\n   - For students from systems like the US High School Diploma, a SAT score of 1000 is required, or they must pass with at least upper 50% marks/grade in their own education system.\n   - Foreign students fulfilling these admission eligibility criteria need not sit for the Admission Test [Page 176, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf; Page 14, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\n3. **Admission Test**:\n   - Candidates seeking admission must qualify in the admission test. The date of the test is announced in major daily newspapers [Page 175, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\n4. **Academic Performance**:\n   - Applicants must maintain a minimum GPA of 3.50 in each semester as a regular student. All undergraduate students must register for at least 9 credits in a semester; this credit requirement is 12 credits for students of the B.Pharm. program [Page 219, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\n5. **Disciplinary Code**:\n   - All students must abide by the East West University Disciplinary Code at all times [Page 219, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\n### Additional Information:\n- **Non-Degree Students**: Applicants who are currently enrolled in an undergraduate program at a recognized university may apply for admission as non-degree students [Page 178, Source: ewuundergraduate-bulletin-14th-edition-doc-version.pdf].\n\nIf you have any further questions or need assistance with the application process, feel free to ask! \n\n[CONFIDENCE: HIGH]",
+      "timestamp": "01:14 AM"
     }
   ]
 }
