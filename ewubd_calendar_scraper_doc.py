@@ -1,5 +1,3 @@
-# ewubd_full_calendar_to_doc.py
-
 import requests
 from bs4 import BeautifulSoup
 from docx import Document
@@ -30,11 +28,6 @@ CALENDAR_LINKS = [
 "https://ewubd.edu/academic-calendar-details/b-pharm-llb-fall-2025",
 "https://ewubd.edu/academic-calendar-details/m-pharm-llm-fall-2025",
 
-
-
-
-
- 
 ]
 
 def scrape_full_page(url):
@@ -43,17 +36,14 @@ def scrape_full_page(url):
     return BeautifulSoup(res.text, "html.parser")
 
 def append_page_to_doc(soup, doc, url):
-    # Page title
+
     title = soup.find("h2") or soup.find("h1")
     doc.add_heading(title.get_text(strip=True) if title else url, level=2)
-
-    # All visible text blocks (p, h3, h4, strong)
     for tag in soup.find_all(["p", "h3", "h4"]):
         text = tag.get_text(strip=True)
         if text:
             doc.add_paragraph(text)
 
-    # Tables
     for table in soup.find_all("table"):
         rows = table.find_all("tr")
         if not rows:
@@ -68,7 +58,7 @@ def append_page_to_doc(soup, doc, url):
             for i, cell in enumerate(cells):
                 row_cells[i].text = cell.get_text(strip=True)
 
-        doc.add_paragraph("")  # spacing
+        doc.add_paragraph("") 
 
 def main():
     if os.path.exists(OUTPUT_FILE):
