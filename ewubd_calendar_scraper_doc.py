@@ -59,6 +59,7 @@ def append_page_to_doc(soup, doc, url):
                 row_cells[i].text = cell.get_text(strip=True)
 
         doc.add_paragraph("") 
+        
 
 def main():
     if os.path.exists(OUTPUT_FILE):
