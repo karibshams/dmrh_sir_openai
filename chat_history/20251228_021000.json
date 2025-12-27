@@ -1,0 +1,47 @@
+{
+  "id": "20251228_021000",
+  "title": "hlw i need help ",
+  "created_at": "2025-12-28T02:15:16.931127",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hlw i need help ",
+      "timestamp": "02:10 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you today? If you have any questions related to East West University (EWU), feel free to ask!",
+      "timestamp": "02:10 AM"
+    },
+    {
+      "role": "user",
+      "content": "i want to admit in the cse department ",
+      "timestamp": "02:10 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "To gain admission to the Computer Science and Engineering (CSE) department at East West University (EWU), you will need to follow the university's admission process. However, specific details regarding the admission requirements, procedures, and criteria are not available in the provided EWU documents. \n\nThis specific information about EWU is not available in the provided documents. I can only provide information that's documented in the official EWU bulletin and materials. If you have any other questions or need information from the documents, feel free to ask!",
+      "timestamp": "02:10 AM"
+    },
+    {
+      "role": "user",
+      "content": "can u please share me the calender of fall 2025",
+      "timestamp": "02:12 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the complete academic calendar for Fall 2025 at East West University (EWU):\n\n| Date                | Day       | Event                                                                                     |\n|---------------------|-----------|-------------------------------------------------------------------------------------------|\n| August 01           | Friday    | Admission Test for Fall 2025                                                              |\n| August 03           | Sunday    | Submission of Final Grades                                                                 |\n| August 05-12        | Tuesday-Tuesday | Semester Break                                                                         |\n| August 13           | Wednesday  | University Reopens for Fall 2025                                                          |\n| August 14           | Thursday   | Orientation and Advising of Newly Admitted Students and Knowing Your Campus: Orientation with the academic and other facilities of the University |\n| August 16           | Saturday   | Holiday: Janmastami                                                                       |\n| August 17           | Sunday     | First Day of Classes for Fall 2025                                                        |\n\nImportant notes:\n- Any advanced amount in the student account will be adjusted with the tuition of the next semester. No cash refund is permissible.\n- The University reserves the right to make necessary changes in the above calendar as and when necessary. Class duration is 75 minutes. *Subject to sighting of the moon. \n\n[Page 45, Source: EWU_Academic_Calendar_FULL.pdf] \n\n[CONFIDENCE: HIGH]",
+      "timestamp": "02:12 AM"
+    },
+    {
+      "role": "user",
+      "content": "tell me about Mohammad Rezwanul Huqtell me about Mohammad Rezwanul Huq",
+      "timestamp": "02:15 AM"
+    },
+    {
+      "role": "assistant",
+      "content": "This specific information about Mohammad Rezwanul Huq is not available in the provided documents. I can only provide information that's documented in the official EWU bulletin and materials.",
+      "timestamp": "02:15 AM"
+    }
+  ]
+}

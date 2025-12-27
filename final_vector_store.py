@@ -143,8 +143,8 @@ class EnhancedVectorStoreCreator:
             if narrative_docs:
                 print(f"  - Processing narrative content ({len(narrative_docs)} docs)...")
                 narrative_splitter = RecursiveCharacterTextSplitter(
-                    chunk_size=800,
-                    chunk_overlap=150,
+                    chunk_size=1200,
+                    chunk_overlap=200,
                     separators=["\n\n", "\nFaculty", "\nDepartment", "\nProgram", "\n", " ", ""]
                 )
                 narrative_chunks = narrative_splitter.split_documents(narrative_docs)
