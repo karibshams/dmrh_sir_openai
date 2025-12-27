@@ -10,19 +10,17 @@ import os
 
 OUTPUT_FILE = "EWU_Complete_Data_2025_2026.docx"
 
-# All EWU Links to Scrape
+
 EWU_LINKS = [
-    # Programs
+
     "https://www.ewubd.edu/graduate-programs",
     "https://www.ewubd.edu/undergraduate-programs",
-    
-    # Admission & Fees
+
     "https://admission.ewubd.edu/",
     "https://www.ewubd.edu/graduate-programs-tuition-fees",
     "https://www.ewubd.edu/undergraduate-tuition-fees",
     "https://www.ewubd.edu/scholarships-financial-aid",
-    
-    # Leadership & Authority
+ 
     "https://www.ewubd.edu/board-trustees",
     "https://www.ewubd.edu/vice-chancellor",
     "https://www.ewubd.edu/treasurer",
@@ -43,52 +41,43 @@ def scrape_full_page(url):
 
 def append_page_to_doc(soup, doc, url):
     """Extract all content from page and append to document"""
-    
-    # Page title/heading
+
     title = soup.find("h1") or soup.find("h2") or soup.find("title")
     doc.add_heading(title.get_text(strip=True) if title else url, level=1)
-    
-    # Add URL reference
+
     doc.add_paragraph(f"Source: {url}", style='Intense Quote')
-    doc.add_paragraph("")  # spacing
-    
-    # Extract all headings and paragraphs in order
+    doc.add_paragraph("") 
+
     for tag in soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6", "p", "strong"]):
         text = tag.get_text(strip=True)
         if not text or len(text) < 3:
             continue
-        
-        # Add headings
+
         if tag.name in ["h1", "h2", "h3", "h4", "h5", "h6"]:
-            level = int(tag.name[1])  # Extract number from h1, h2, etc.
-            doc.add_heading(text, level=min(level + 1, 9))  # +1 because main title is level 1
-        
-        # Add paragraphs
+            level = int(tag.name[1])
+            doc.add_heading(text, level=min(level + 1, 9))  
+  
         elif tag.name == "p":
-            if len(text) > 10:  # Only meaningful paragraphs
+            if len(text) > 10:  
                 doc.add_paragraph(text)
         
-        # Add bold/important text
         elif tag.name == "strong":
             if len(text) > 5:
                 doc.add_paragraph(text, style='Intense Quote')
     
-    # Extract all lists (ul, ol)
     for ul in soup.find_all(["ul", "ol"]):
         for li in ul.find_all("li", recursive=False):
             text = li.get_text(strip=True)
             if text:
                 doc.add_paragraph(text, style='List Bullet')
     
-    doc.add_paragraph("")  # spacing
+    doc.add_paragraph("") 
     
-    # Extract all tables
+
     for table in soup.find_all("table"):
         rows = table.find_all("tr")
         if not rows:
             continue
-        
-        # Count maximum columns
         col_count = max(len(row.find_all(["th", "td"])) for row in rows)
         if col_count == 0:
             continue
@@ -103,9 +92,8 @@ def append_page_to_doc(soup, doc, url):
                 if i < col_count:
                     row_cells[i].text = cell.get_text(strip=True)
         
-        doc.add_paragraph("")  # spacing after table
+        doc.add_paragraph("") 
     
-    # Add page break for next page
     doc.add_page_break()
 
 
@@ -115,7 +103,6 @@ def main():
     print("EWU Complete Data Scraper 2025-2026")
     print("="*70)
     
-    # Create or load document
     if os.path.exists(OUTPUT_FILE):
         print(f"\nLoading existing document: {OUTPUT_FILE}")
         doc = Document(OUTPUT_FILE)
@@ -125,7 +112,6 @@ def main():
         doc.add_paragraph("Academic Year: 2025-2026")
         doc.add_paragraph("")
     
-    # Scrape all pages
     for i, link in enumerate(EWU_LINKS, 1):
         print(f"\n[{i}/{len(EWU_LINKS)}] Processing: {link}")
         
@@ -138,14 +124,13 @@ def main():
             print(f"  ✗ Error: {e}")
             continue
     
-    # Save document
     print(f"\n{'='*70}")
     print(f"Saving document to {OUTPUT_FILE}...")
     doc.save(OUTPUT_FILE)
     
     print(f"✓ Successfully saved!")
     print(f"{'='*70}")
-    print(f"\n✅ ALL DATA SAVED TO {OUTPUT_FILE}")
+    print(f"\n ALL DATA SAVED TO {OUTPUT_FILE}")
     print(f"{'='*70}\n")
 
 
