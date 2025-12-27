@@ -60,8 +60,8 @@ class LLMManager:
             self.llm = ChatOpenAI(
                 api_key=self.api_key,
                 model=self.model,
-                temperature=0.0,
-                max_tokens=4000
+                temperature=0.1,
+                max_tokens=5000
             )
             print(f"LLM loaded (Model: {self.model})")
             return self.llm
@@ -250,7 +250,7 @@ class AcademicAssistant:
             print("Creating QA chain...")
             
             self.retriever = self.vector_manager.db.as_retriever(
-                search_kwargs={'k': 40}
+                search_kwargs={'k': 50}
             )
             
             prompt = self.prompt_manager.get_template()
@@ -304,9 +304,9 @@ class AcademicAssistant:
             )
             
             print("QA chain created successfully")
-            print(f"  - Retrieval k=40 (enhanced for comprehensive queries)")
-            print(f"  - Temperature=0.0")
-            print(f"  - Max tokens=4000")
+            print(f"  - Retrieval k=50 (enhanced for comprehensive queries)")
+            print(f"  - Temperature=0.1")
+            print(f"  - Max tokens=5000")
             print(f"  - Complete answer mode enabled")
             return self.qa_chain
         except Exception as e:
