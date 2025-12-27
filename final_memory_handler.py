@@ -60,8 +60,8 @@ class LLMManager:
             self.llm = ChatOpenAI(
                 api_key=self.api_key,
                 model=self.model,
-                temperature=0.1,
-                max_tokens=5000
+                temperature=0.0,
+                max_tokens=6000
             )
             print(f"LLM loaded (Model: {self.model})")
             return self.llm
@@ -137,11 +137,14 @@ CRITICAL RULES - ABSOLUTE REQUIREMENTS:
     - Use markdown table format for clarity
 
 11. COMPLETENESS FOR LIST QUERIES:
-    - When user asks for "all", "complete", "entire" lists (faculty, courses, etc.)
+    - When user asks for "all", "complete", "entire", "full" lists (faculty, courses, calendar, etc.)
     - Retrieve and present THE COMPLETE list from documents
     - Do NOT provide partial lists across multiple responses
     - Aggregate all relevant data before responding
     - Remove duplicates and organize alphabetically or by rank
+    - For calendars: include ALL dates from start to end of semester
+    - For tables: include ALL rows without truncation
+    - If data spans multiple pages, combine all pages into one complete response
     
 12. FILTERING AND SEARCH PRECISION:
     - When user asks for specific roles (e.g., "professors only")
@@ -228,6 +231,16 @@ class AcademicAssistant:
     def normalize_query(self, question):
         normalized = question.lower().strip()
         
+        query_type_boost = {
+            "calendar": "academic calendar dates events schedule",
+            "full": "complete entire all comprehensive",
+            "table": "table list complete rows",
+        }
+        
+        for keyword, boost in query_type_boost.items():
+            if keyword in normalized:
+                normalized = f"{normalized} {boost}"
+        
         typo_fixes = {
             "facullty": "faculty",
             "coursse": "course",
@@ -238,6 +251,7 @@ class AcademicAssistant:
             "dept": "department",
             "bba": "business administration bba",
             "eng": "engineering eng",
+            "calewnder": "calendar",
         }
         
         for old, new in typo_fixes.items():
@@ -250,7 +264,7 @@ class AcademicAssistant:
             print("Creating QA chain...")
             
             self.retriever = self.vector_manager.db.as_retriever(
-                search_kwargs={'k': 50}
+                search_kwargs={'k': 60}
             )
             
             prompt = self.prompt_manager.get_template()
@@ -304,9 +318,9 @@ class AcademicAssistant:
             )
             
             print("QA chain created successfully")
-            print(f"  - Retrieval k=50 (enhanced for comprehensive queries)")
-            print(f"  - Temperature=0.1")
-            print(f"  - Max tokens=5000")
+            print(f"  - Retrieval k=60 (enhanced for comprehensive queries)")
+            print(f"  - Temperature=0.0")
+            print(f"  - Max tokens=6000 (for complete calendars/tables)")
             print(f"  - Complete answer mode enabled")
             return self.qa_chain
         except Exception as e:

@@ -530,9 +530,9 @@ def render_sidebar():
         
         with st.expander("⚙️ System Info"):
             st.markdown("**Model:** gpt-4o-mini")
-            st.markdown("**Temperature:** 0.1")
-            st.markdown("**Max Tokens:** 5000")
-            st.markdown("**Retrieval k:** 50")
+            st.markdown("**Temperature:** 0.0")
+            st.markdown("**Max Tokens:** 6000")
+            st.markdown("**Retrieval k:** 60")
             st.markdown("**Embeddings:** all-MiniLM-L6-v2")
             
             if st.button("🔄 Reinitialize", use_container_width=True):
