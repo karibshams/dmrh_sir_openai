@@ -6,7 +6,7 @@ from pathlib import Path
 from final_memory_handler import AcademicAssistant
 
 st.set_page_config(
-    page_title="EWU Academic Assistant",
+    page_title="EWU Academic Assistant - FIXED",
     page_icon="🎓",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -107,7 +107,7 @@ st.markdown("""
         color: #1e3a5f;
         margin-left: 0;
         margin-right: auto;
-        max-width: 90%;
+        max-width: 95%;
         border-left: 5px solid #2c4a6d;
         border-bottom-left-radius: 5px;
     }
@@ -364,6 +364,17 @@ st.markdown("""
         color: #3d5a7c !important;
         text-decoration: underline !important;
     }
+    
+    .enhancement-badge {
+        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        display: inline-block;
+        margin: 0.25rem;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -445,7 +456,7 @@ def format_timestamp(seconds=None):
 
 def initialize_assistant():
     try:
-        with st.spinner("Initializing EWU Academic Assistant..."):
+        with st.spinner("Initializing EWU Academic Assistant (FIXED VERSION)..."):
             assistant = AcademicAssistant(
                 db_path=os.getenv("VECTOR_STORE_PATH", "final_vectorstore/db_faiss"),
                 model=os.getenv("LLM_MODEL", "gpt-4o-mini")
@@ -482,7 +493,14 @@ def extract_chat_title(message):
 def render_sidebar():
     with st.sidebar:
         st.markdown("### 🎓 EWU Academic Assistant")
-        st.markdown("<small>East West University</small>", unsafe_allow_html=True)
+        st.markdown("<small>East West University - FIXED VERSION</small>", unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div class="enhancement-badge">✅ Full Context Preservation</div>
+        <div class="enhancement-badge">✅ Complete Tables</div>
+        <div class="enhancement-badge">✅ All Conditions</div>
+        <div class="enhancement-badge">✅ Exact Faculty Data</div>
+        """, unsafe_allow_html=True)
         
         if st.button("➕ New Chat", use_container_width=True, key="new_chat_btn"):
             start_new_chat()
@@ -529,11 +547,20 @@ def render_sidebar():
         st.divider()
         
         with st.expander("⚙️ System Info"):
+            st.markdown("**Version:** FIXED (Context Preservation)")
             st.markdown("**Model:** gpt-4o-mini")
             st.markdown("**Temperature:** 0.0")
-            st.markdown("**Max Tokens:** 6000")
-            st.markdown("**Retrieval k:** 60")
+            st.markdown("**Max Tokens:** 8000")
+            st.markdown("**Retrieval k:** 100")
             st.markdown("**Embeddings:** all-MiniLM-L6-v2")
+            st.divider()
+            st.markdown("**Enhancements:**")
+            st.markdown("✅ Full section context")
+            st.markdown("✅ Complete table preservation")
+            st.markdown("✅ Condition & exception marking")
+            st.markdown("✅ Program-specific filtering")
+            st.markdown("✅ Cross-reference preservation")
+            st.markdown("✅ Faculty roster accuracy")
             
             if st.button("🔄 Reinitialize", use_container_width=True):
                 st.session_state.assistant_initialized = False
@@ -565,7 +592,7 @@ def main():
     initialize_session_state()
     render_sidebar()
     
-    st.markdown("### 💬 Chat with EWU Assistant")
+    st.markdown("### 💬 Chat with EWU Assistant (FIXED VERSION)")
     
     if not st.session_state.assistant_initialized:
         if not initialize_assistant():
@@ -577,7 +604,20 @@ def main():
     messages_container = st.container()
     with messages_container:
         if not st.session_state.messages:
-            st.markdown('<div class="welcome-container"><h1>👋 Welcome to EWU Academic Assistant</h1><p>Your intelligent guide to East West University academic information</p><div class="feature-grid"><div class="feature-card"><h3>📚 Complete Information</h3><p>Get comprehensive answers with full details from official documents</p></div><div class="feature-card"><h3>📖 Accurate Citations</h3><p>Every fact backed by page numbers and source references</p></div><div class="feature-card"><h3>📊 Tables & Data</h3><p>View complete course structures, requirements, and statistics</p></div><div class="feature-card"><h3>💡 Smart Assistance</h3><p>Ask about courses, faculty, fees, policies, and more</p></div></div></div>', unsafe_allow_html=True)
+            st.markdown("""<div class="welcome-container">
+<h1>👋 Welcome to EWU Academic Assistant (FIXED)</h1>
+<p>Your intelligent guide to complete and accurate East West University information</p>
+<div class="feature-grid">
+<div class="feature-card"><h3>📚 Complete Information</h3><p>Full sections with all context, not fragments</p></div>
+<div class="feature-card"><h3>📊 Complete Tables</h3><p>Full row/column structure preserved</p></div>
+<div class="feature-card"><h3>📋 All Conditions</h3><p>Rules with ALL conditions, exceptions, scope</p></div>
+<div class="feature-card"><h3>👥 Accurate Faculty</h3><p>Exact names, designations, departments</p></div>
+<div class="feature-card"><h3>🎯 Program-Specific</h3><p>Correct rules for CSE, BBA, English, etc.</p></div>
+<div class="feature-card"><h3>🔗 Cross-References</h3><p>All related dependencies included</p></div>
+<div class="feature-card"><h3>📖 Full Context</h3><p>Narrative background for complete understanding</p></div>
+<div class="feature-card"><h3>📝 Accurate Citations</h3><p>Every fact backed by page numbers</p></div>
+</div>
+</div>""", unsafe_allow_html=True)
         else:
             for message in st.session_state.messages:
                 render_chat_message(message)
@@ -590,7 +630,7 @@ def main():
         with col1:
             user_input = st.text_input(
                 "Type your question...",
-                placeholder="Ask about courses, faculty, fees, programs, requirements...",
+                placeholder="Ask about courses, faculty, fees, complete lists, all requirements, policies, programs...",
                 label_visibility="collapsed",
                 key="user_input"
             )

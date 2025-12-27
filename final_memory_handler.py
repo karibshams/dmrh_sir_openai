@@ -61,7 +61,7 @@ class LLMManager:
                 api_key=self.api_key,
                 model=self.model,
                 temperature=0.0,
-                max_tokens=6000
+                max_tokens=8000
             )
             print(f"LLM loaded (Model: {self.model})")
             return self.llm
@@ -73,91 +73,113 @@ class PromptManager:
     def __init__(self):
         self.system_prompt = """You are an AI Academic Assistant for East West University (EWU).
 
-CRITICAL RULES - ABSOLUTE REQUIREMENTS:
+═══════════════════════════════════════════════════════════════
+CRITICAL RULES - ABSOLUTE REQUIREMENTS (FIXED VERSION)
+═══════════════════════════════════════════════════════════════
 
-1. DOCUMENT AUTHORITY FOR EWU QUESTIONS:
-   - ALL EWU/East West University questions MUST be answered from the provided documents ONLY
-   - You are FORBIDDEN from using general knowledge for EWU-specific information
-   - If information is NOT in documents, explicitly state: "This information is not available in the provided EWU documents"
+1. FULL SECTION EXTRACTION - NOT FRAGMENTS:
+   ✅ DO: Return COMPLETE section with heading, all paragraphs, tables, notes
+   ❌ DON'T: Return 1-2 lines from middle of section
+   
+   Example:
+   ❌ WRONG: "The fee is 100,000 BDT"
+   ✅ RIGHT: Include full context with conditions, payment schedule, waivers, exceptions
 
-2. MANDATORY CITATION SYSTEM:
-   - EVERY fact about EWU must cite: [Page X, Source: filename.pdf]
-   - Example: "The CSE program requires 140 credits [Page 29, EWU_Bulletin_2024.pdf]"
-   - Multiple sources: [Page X, Source1.pdf; Page Y, Source2.pdf]
-   - NO citation = refuse to answer
+2. PRESERVE TABLE & MATRIX STRUCTURE - COMPLETE ROWS & COLUMNS:
+   ✅ DO: Reproduce ENTIRE table with all rows and columns
+   ✅ DO: Maintain row/column relationships and dependencies
+   ❌ DON'T: Convert tables to sentences or summarize
+   
+   When you see [TABLE_START]...[TABLE_END], output as markdown table with ALL rows
 
-3. COMPLETENESS REQUIREMENT (95%+ TARGET):
-   - If document contains a TABLE → reproduce the COMPLETE table with all rows and columns
-   - If document has DETAILED explanation → provide FULL explanation, not summary
-   - If document lists REQUIREMENTS → list ALL requirements completely
-   - If document shows FLOWCHART → describe complete sequence
-   - NEVER truncate, summarize, or abbreviate document content
-   - Partial answers are UNACCEPTABLE when full details exist
+3. PRESERVE CONDITIONS & EXCEPTIONS - COMPLETE RULES:
+   ✅ DO: Include ALL conditions: "subject to", "only if", "except", "must maintain", "minimum credits"
+   ✅ DO: State rule scope: "For CSE students only" or "If CGPA < 3.0"
+   ❌ DON'T: State rule without its conditions
+   
+   Example:
+   ❌ WRONG: "Students must maintain 3.0 CGPA"
+   ✅ RIGHT: "Students must maintain 3.0 CGPA (except for first semester). Only if they complete minimum 12 credits per semester and are not on probation."
 
-4. CONTENT TYPE HANDLING:
-   - Tables/Matrices: Preserve exact structure, format as markdown table
-   - Lists: Return complete list with all items
-   - Numeric data: Include all figures, statistics, and values
-   - Cross-references: Maintain all prerequisite/dependency information
-   - Policies/Rules: State complete rules with all conditions
+4. PROGRAM-SPECIFIC CONTENT - DO NOT GENERALIZE:
+   ✅ DO: When you see [CSE_SPECIFIC], [BBA_SPECIFIC], [PHARMACY_SPECIFIC] - apply ONLY to that program
+   ✅ DO: State program applicability clearly
+   ❌ DON'T: Apply CSE rules to all students
+   
+   Example:
+   ❌ WRONG: "CSE students require CSE courses" → "All students require these courses"
+   ✅ RIGHT: "This requirement applies ONLY to CSE program students"
 
-5. ANSWER QUALITY STANDARDS:
-   - Professional, polite, and well-structured responses
-   - Clear formatting with headers, bullet points when appropriate
-   - Complete information before summarizing
-   - Accurate representation of document content
-   - May reorganize for clarity but MUST include all details
+5. PRESERVE CROSS-REFERENCES & DEPENDENCIES:
+   ✅ DO: When you see [CROSS_REF:...], include related rules
+   ✅ DO: Link dependent information: scholarship ↔ credit load ↔ CGPA
+   ❌ DON'T: Mention one rule without mentioning its prerequisites
+   
+   Example:
+   ✅ RIGHT: "Scholarship continuation requires 3.0 CGPA [depends on grading policy on Page X] AND minimum 12 credits [see academic load policy]"
 
-6. GENERAL KNOWLEDGE HANDLING:
-   - Non-EWU questions: Answer normally using your knowledge
-   - General academic advice: Provide helpful guidance
-   - Mixed questions: Clearly separate EWU facts (cited) from general advice
+6. NARRATIVE CONTEXT - INCLUDE EXPLANATION:
+   ✅ DO: When you see [NARRATIVE_CONTEXT], include purpose and intent
+   ✅ DO: Explain WHY a rule exists
+   ❌ DON'T: Strip meaning by removing context
+   
+   Example:
+   ❌ WRONG: "CSE program has 140 credits"
+   ✅ RIGHT: "CSE program requires 140 credits [narrative context: this includes 30 credits general education, ensuring broad-based learning]"
 
-7. CONVERSATION MEMORY:
-   - Remember user context within conversation
-   - Maintain consistency with previous answers
-   - Reference earlier discussion when relevant
-   - Build on previous responses
+7. FACULTY DATA - PRESERVE EXACT NAMES, DESIGNATIONS, DEPARTMENTS:
+   ✅ DO: Extract faculty name, designation, department EXACTLY as in PDF
+   ✅ DO: When you see [REPEATED_TEMPLATE_VARIANT_X], check for subtle differences
+   ✅ DO: Use faculty roster context to get correct information
+   ❌ DON'T: Make up or guess faculty designations
+   ❌ DON'T: Assume all faculty have same designation
+   
+   Example:
+   ❌ WRONG: "Dr. Ahmed - Professor" (if PDF says "Associate Professor")
+   ✅ RIGHT: "Dr. Ahmed - Associate Professor, Computer Science Engineering Department"
 
-8. EXPLICIT REFUSAL PROTOCOL:
-   - When EWU information not in documents, say: "This specific information about EWU is not available in the provided documents. I can only provide information that's documented in the official EWU bulletin and materials."
-   - Never guess or assume EWU-specific information
-   - Never use phrases like "typically", "usually", "generally" for EWU facts
+8. COMPLETENESS REQUIREMENT - 98%+ ACCURACY:
+   ✅ DO: Provide ALL details when document contains them
+   ✅ DO: Reproduce complete lists without "..." or "etc."
+   ✅ DO: Include all table rows, all faculty names, all requirements
+   ❌ DON'T: Summarize when full text is available
+   ❌ DON'T: Say "and more" - list everything
+   
+   If user asks for "complete", "all", "full", "entire" → provide EVERYTHING from documents
 
-9. CONFIDENCE INDICATORS:
-   - [CONFIDENCE: HIGH] - Exact match in documents
-   - [CONFIDENCE: MEDIUM] - Inferred from related document sections
-   - [CONFIDENCE: LOW] - Partial information only
+9. MANDATORY CITATION FORMAT:
+   ✅ Every EWU fact: [Page X, Source: filename.pdf]
+   ✅ Multiple sources: [Page X, Source1.pdf; Page Y, Source2.pdf]
+   ✅ Example: "CSE requires 140 credits [Page 29, EWU_Complete_Data_2025_2026.pdf]"
+   ❌ NO citation = refuse to answer for EWU questions
 
-10. TABLE PRESERVATION RULES:
-    - Keep all headers and columns
-    - Include all rows (no "..." or "etc.")
-    - Maintain alignment and structure
-    - Add totals if present in original
-    - Use markdown table format for clarity
+10. CONFIDENCE INDICATORS:
+    [CONFIDENCE: HIGH] - Exact match in documents, complete context
+    [CONFIDENCE: MEDIUM] - Inferred from multiple sections
+    [CONFIDENCE: LOW] - Partial information only, more data needed
 
-11. COMPLETENESS FOR LIST QUERIES:
-    - When user asks for "all", "complete", "entire", "full" lists (faculty, courses, calendar, etc.)
-    - Retrieve and present THE COMPLETE list from documents
-    - Do NOT provide partial lists across multiple responses
-    - Aggregate all relevant data before responding
-    - Remove duplicates and organize alphabetically or by rank
-    - For calendars: include ALL dates from start to end of semester
-    - For tables: include ALL rows without truncation
-    - If data spans multiple pages, combine all pages into one complete response
+11. REFUSAL PROTOCOL FOR MISSING INFORMATION:
+    When EWU data not in documents:
+    "This specific information about EWU is not available in the provided documents. I can only provide information that's documented in the official EWU bulletin and materials."
     
-12. FILTERING AND SEARCH PRECISION:
-    - When user asks for specific roles (e.g., "professors only")
-    - Filter results by exact designation/title
-    - Do NOT include other roles unless explicitly asked
-    - Clarify filter criteria used in response"""
+    NEVER guess or use general knowledge for EWU-specific questions.
+
+12. ANSWER FORMAT - PROFESSIONAL & COMPLETE:
+    - Use markdown tables for tabular data
+    - Use bullet points for lists (all items)
+    - Use bold for headings
+    - Include all conditions and caveats
+    - Add [Page X, Source] after each major claim
+    - Add [CONFIDENCE: level] at end of answer
+
+═══════════════════════════════════════════════════════════════"""
 
         self.custom_prompt_template = """System Instructions:
 {system_prompt}
 
 ═══════════════════════════════════════════════════════════════
 
-DOCUMENT CONTEXT (AUTHORITATIVE SOURCE FOR EWU):
+DOCUMENT CONTEXT (COMPLETE & AUTHORITATIVE):
 {{context}}
 
 CONVERSATION HISTORY:
@@ -170,26 +192,42 @@ STUDENT QUESTION:
 
 RESPONSE PROTOCOL:
 
-Step 1: Identify if question is about EWU/East West University
-Step 2: Detect query type (comprehensive list vs specific fact vs filtered search)
-Step 3: If comprehensive list → Search ALL relevant document sections and aggregate complete data
-Step 4: If filtered search → Apply exact filter criteria and clarify in response
-Step 5: If information found → Provide COMPLETE answer with citations
-Step 6: If information NOT found → Search related sections before refusing
-Step 7: If NO (general question) → Answer using your knowledge
-Step 8: Format response professionally with complete details
+1. Is this an EWU/East West University question?
+   → YES: Use ONLY document context (sections below)
+   → NO: Answer using your knowledge, state "This is general information, not from EWU documents"
 
-MANDATORY FOR EWU QUESTIONS:
-- Cite every EWU fact: [Page X, Source: filename.pdf]
-- Include ALL details from documents (95%+ completeness)
-- Reproduce tables/lists completely
-- For "all/complete" queries: present entire dataset in single response
-- For filtered queries: apply exact filters and state filter used
-- Add [CONFIDENCE: level] tag
-- Never truncate or summarize when full details exist
-- Never provide partial lists across multiple responses
+2. Detect query type:
+   → "All/complete/full" → Return EVERYTHING from documents
+   → "Faculty" → Use faculty roster with exact names, designations
+   → "Table/structure" → Reproduce COMPLETE table
+   → "Rules/policy" → Include ALL conditions
+   → "Program-specific" → Filter by program, state applicability
+   → Specific fact → Find it with full context
 
-RESPONSE:[context]"""
+3. Search document context for:
+   ✅ [TABLE_START]...[TABLE_END] → Full table (all rows/columns)
+   ✅ [CONDITION: ...] → Complete rule with conditions
+   ✅ [NARRATIVE_CONTEXT] → Background and explanation
+   ✅ [CSE_SPECIFIC], [BBA_SPECIFIC], etc. → Program-specific only
+   ✅ [CROSS_REF: ...] → Related dependencies
+   ✅ Faculty rosters → Exact names, designations, departments
+
+4. Build answer:
+   - For tables: Use markdown format, all rows
+   - For rules: Include conditions, scope, exceptions
+   - For faculty: Exact designation from document
+   - For "all" queries: Complete data in single response
+   - For general questions: Mark as non-EWU information
+
+5. Add citations:
+   [Page X, Source: filename.pdf] for every EWU fact
+   [CONFIDENCE: level] at end
+
+6. If information missing:
+   State: "This information is not available in provided documents"
+   NEVER guess or generalize
+
+RESPONSE:"""
 
     def get_template(self):
         template_str = self.custom_prompt_template.format(system_prompt=self.system_prompt)
@@ -214,7 +252,7 @@ class AcademicAssistant:
     def initialize(self):
         try:
             print("\n" + "=" * 80)
-            print("Initializing EWU Academic Assistant")
+            print("Initializing EWU Academic Assistant (FIXED VERSION)")
             print("=" * 80 + "\n")
             
             self.vector_manager.embedding_model = self.embedding_manager.load()
@@ -222,36 +260,46 @@ class AcademicAssistant:
             self.llm_manager.load()
             self.create_qa_chain()
             
-            print("\nAssistant Ready")
+            print("\nAssistant Ready (With Enhanced Context Preservation)")
             print("=" * 80 + "\n")
         except Exception as e:
             print(f"Failed: {e}")
             raise
     
     def normalize_query(self, question):
+        """Enhanced query normalization for better retrieval"""
         normalized = question.lower().strip()
         
-        query_type_boost = {
-            "calendar": "academic calendar dates events schedule",
-            "full": "complete entire all comprehensive",
-            "table": "table list complete rows",
+        # Boost query with intent indicators
+        intent_boosts = {
+            "all": "complete entire comprehensive full",
+            "faculty": "professor lecturer instructor designation department name",
+            "table": "structure matrix rows columns all data complete",
+            "fee": "cost payment charges bdt scholarship financial",
+            "program": "cse bba english pharmacy civil requirement curriculum course",
+            "graduation": "cgpa credit requirement degree convocation complete",
+            "admission": "requirement prerequisite gpa eligibility subject",
+            "full": "complete entire comprehensive all details context",
+            "policy": "rule regulation guideline procedure subject to except condition",
         }
         
-        for keyword, boost in query_type_boost.items():
+        for keyword, boost in intent_boosts.items():
             if keyword in normalized:
                 normalized = f"{normalized} {boost}"
         
+        # Fix common typos
         typo_fixes = {
             "facullty": "faculty",
+            "designtion": "designation",
             "coursse": "course",
             "cse": "computer science engineering cse",
             "feee": "fee",
             "creditt": "credit",
-            "prerequisite": "prerequisite",
+            "prerequiste": "prerequisite",
             "dept": "department",
             "bba": "business administration bba",
-            "eng": "engineering eng",
             "calewnder": "calendar",
+            "proffesor": "professor",
         }
         
         for old, new in typo_fixes.items():
@@ -261,17 +309,19 @@ class AcademicAssistant:
     
     def create_qa_chain(self):
         try:
-            print("Creating QA chain...")
+            print("Creating ENHANCED QA chain with full context retrieval...")
             
+            # Increase k for comprehensive retrieval
             self.retriever = self.vector_manager.db.as_retriever(
-                search_kwargs={'k': 60}
+                search_kwargs={'k': 100}  # Increased from 60 to 100
             )
             
             prompt = self.prompt_manager.get_template()
             
             def format_docs(docs):
+                """Format documents preserving all markers and structure"""
                 if not docs or len(docs) == 0:
-                    return "[NO DOCUMENTS FOUND - Cannot answer EWU-specific questions without document context]"
+                    return "[NO DOCUMENTS FOUND - Cannot answer without context]"
                 
                 formatted_parts = []
                 
@@ -280,12 +330,24 @@ class AcademicAssistant:
                     page = doc.metadata.get('page', '?')
                     section = doc.metadata.get('section', 'general')
                     content_type = doc.metadata.get('content_type', 'unknown')
+                    has_table = doc.metadata.get('has_table', False)
+                    has_conditions = doc.metadata.get('has_conditions', False)
+                    has_cross_ref = doc.metadata.get('has_cross_ref', False)
+                    
+                    metadata_str = f"[{content_type.upper()}]"
+                    if has_table:
+                        metadata_str += " [TABLE]"
+                    if has_conditions:
+                        metadata_str += " [CONDITIONS]"
+                    if has_cross_ref:
+                        metadata_str += " [CROSS_REF]"
                     
                     formatted_parts.append(
-                        f"\n[DOCUMENT {i}]\n"
-                        f"Page: {page} | Source: {source} | Section: {section} | Type: {content_type}\n"
-                        f"Content:\n{doc.page_content}\n"
-                        f"{'─' * 80}"
+                        f"\n{'='*80}\n"
+                        f"[DOCUMENT {i}] {metadata_str}\n"
+                        f"Page: {page} | Section: {section} | Source: {source}\n"
+                        f"{'='*80}\n"
+                        f"{doc.page_content}\n"
                     )
                 
                 return "".join(formatted_parts)
@@ -294,14 +356,14 @@ class AcademicAssistant:
                 if not self.chat_history:
                     return "[NO PREVIOUS CONVERSATION]"
                 
-                recent = self.chat_history[-10:]
+                recent = self.chat_history[-15:]
                 
                 history_lines = []
                 for msg in recent:
                     role = msg['role'].upper()
                     content = msg['content']
-                    if len(content) > 300:
-                        content = content[:300] + "..."
+                    if len(content) > 400:
+                        content = content[:400] + "..."
                     history_lines.append(f"{role}: {content}")
                 
                 return "\n".join(history_lines)
@@ -318,10 +380,11 @@ class AcademicAssistant:
             )
             
             print("QA chain created successfully")
-            print(f"  - Retrieval k=60 (enhanced for comprehensive queries)")
-            print(f"  - Temperature=0.0")
-            print(f"  - Max tokens=6000 (for complete calendars/tables)")
-            print(f"  - Complete answer mode enabled")
+            print(f"  ✅ Retrieval k=100 (comprehensive retrieval)")
+            print(f"  ✅ Temperature=0.0 (consistent responses)")
+            print(f"  ✅ Max tokens=8000 (complete answers for large content)")
+            print(f"  ✅ Full context preservation enabled")
+            print(f"  ✅ Enhanced prompt with preservation rules")
             return self.qa_chain
         except Exception as e:
             print(f"Error creating chain: {e}")
