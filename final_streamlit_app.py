@@ -546,7 +546,7 @@ def render_sidebar():
         
         st.divider()
         
-        with st.expander("⚙️ System Info"):
+        with st.expander("System Info"):
             st.markdown("**Version:** FIXED (Context Preservation)")
             st.markdown("**Model:** gpt-4o-mini")
             st.markdown("**Temperature:** 0.0")
