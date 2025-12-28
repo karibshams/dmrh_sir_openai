@@ -456,7 +456,7 @@ def format_timestamp(seconds=None):
 
 def initialize_assistant():
     try:
-        with st.spinner("Initializing EWU Academic Assistant (FIXED VERSION)..."):
+        with st.spinner("Initializing EWU Academic Assistant"):
             assistant = AcademicAssistant(
                 db_path=os.getenv("VECTOR_STORE_PATH", "final_vectorstore/db_faiss"),
                 model=os.getenv("LLM_MODEL", "gpt-4o-mini")
@@ -547,7 +547,7 @@ def render_sidebar():
         st.divider()
         
         with st.expander("⚙️ System Info"):
-            st.markdown("**Version:** FIXED (Context Preservation)")
+            st.markdown("**Version:** (Context Preservation)")
             st.markdown("**Model:** gpt-4o-mini")
             st.markdown("**Temperature:** 0.0")
             st.markdown("**Max Tokens:** 8000")
@@ -592,7 +592,7 @@ def main():
     initialize_session_state()
     render_sidebar()
     
-    st.markdown("### 💬 Chat with EWU Assistant (FIXED VERSION)")
+    st.markdown("### 💬 Chat with EWU Assistant")
     
     if not st.session_state.assistant_initialized:
         if not initialize_assistant():
