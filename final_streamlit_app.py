@@ -492,7 +492,7 @@ def extract_chat_title(message):
 
 def render_sidebar():
     with st.sidebar:
-        st.markdown("###  EWU Academic Assistant")
+        st.markdown("### 🎓 EWU Academic Assistant")
         st.markdown("<small>East West University - FIXED VERSION</small>", unsafe_allow_html=True)
         
         st.markdown("""
