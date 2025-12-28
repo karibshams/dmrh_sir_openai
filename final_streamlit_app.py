@@ -6,7 +6,7 @@ from pathlib import Path
 from final_memory_handler import AcademicAssistant
 
 st.set_page_config(
-    page_title="EWU Academic Assistant - FIXED",
+    page_title="EWU Academic Assistant",
     page_icon="🎓",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -493,13 +493,13 @@ def extract_chat_title(message):
 def render_sidebar():
     with st.sidebar:
         st.markdown("### 🎓 EWU Academic Assistant")
-        st.markdown("<small>East West University - FIXED VERSION</small>", unsafe_allow_html=True)
+        st.markdown("<small>East West University</small>", unsafe_allow_html=True)
         
         st.markdown("""
-        <div class="enhancement-badge">✅Full Context Preservation</div>
-        <div class="enhancement-badge">✅ Complete Tables</div>
-        <div class="enhancement-badge">✅ All Conditions</div>
-        <div class="enhancement-badge">✅ Exact Faculty Data</div>
+        <div class="enhancement-badge">Full Context Preservation</div>
+        <div class="enhancement-badge">Complete Tables</div>
+        <div class="enhancement-badge">All Conditions</div>
+        <div class="enhancement-badge">Exact Faculty Data</div>
         """, unsafe_allow_html=True)
         
         if st.button("➕ New Chat", use_container_width=True, key="new_chat_btn"):
@@ -605,7 +605,7 @@ def main():
     with messages_container:
         if not st.session_state.messages:
             st.markdown("""<div class="welcome-container">
-<h1>👋 Welcome to EWU Academic Assistant (FIXED)</h1>
+<h1>🎓 Welcome to EWU Academic Assistant</h1>
 <p>Your intelligent guide to complete and accurate East West University information</p>
 <div class="feature-grid">
 <div class="feature-card"><h3>📚 Complete Information</h3><p>Full sections with all context, not fragments</p></div>
