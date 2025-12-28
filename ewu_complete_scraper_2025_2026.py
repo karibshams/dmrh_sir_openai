@@ -1,8 +1,3 @@
-"""
-EWU Complete Data Scraper 2025-2026
-Scrapes all pages and saves to Word Document
-"""
-
 import requests
 from bs4 import BeautifulSoup
 from docx import Document
