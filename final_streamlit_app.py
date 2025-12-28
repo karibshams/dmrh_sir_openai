@@ -555,12 +555,12 @@ def render_sidebar():
             st.markdown("**Embeddings:** all-MiniLM-L6-v2")
             st.divider()
             st.markdown("**Enhancements:**")
-            st.markdown("✅ Full section context")
-            st.markdown("✅ Complete table preservation")
-            st.markdown("✅ Condition & exception marking")
-            st.markdown("✅ Program-specific filtering")
-            st.markdown("✅ Cross-reference preservation")
-            st.markdown("✅ Faculty roster accuracy")
+            st.markdown(" Full section context")
+            st.markdown(" Complete table preservation")
+            st.markdown(" Condition & exception marking")
+            st.markdown(" Program-specific filtering")
+            st.markdown(" Cross-reference preservation")
+            st.markdown(" Faculty roster accuracy")
             
             if st.button("🔄 Reinitialize", use_container_width=True):
                 st.session_state.assistant_initialized = False

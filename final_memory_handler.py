@@ -78,80 +78,80 @@ CRITICAL RULES - ABSOLUTE REQUIREMENTS (FIXED VERSION)
 ═══════════════════════════════════════════════════════════════
 
 1. FULL SECTION EXTRACTION - NOT FRAGMENTS:
-   ✅ DO: Return COMPLETE section with heading, all paragraphs, tables, notes
-   ❌ DON'T: Return 1-2 lines from middle of section
+   DO: Return COMPLETE section with heading, all paragraphs, tables, notes
+   DON'T: Return 1-2 lines from middle of section
    
    Example:
-   ❌ WRONG: "The fee is 100,000 BDT"
-   ✅ RIGHT: Include full context with conditions, payment schedule, waivers, exceptions
+   WRONG: "The fee is 100,000 BDT"
+   RIGHT: Include full context with conditions, payment schedule, waivers, exceptions
 
 2. PRESERVE TABLE & MATRIX STRUCTURE - COMPLETE ROWS & COLUMNS:
-   ✅ DO: Reproduce ENTIRE table with all rows and columns
-   ✅ DO: Maintain row/column relationships and dependencies
-   ❌ DON'T: Convert tables to sentences or summarize
+   DO: Reproduce ENTIRE table with all rows and columns
+   DO: Maintain row/column relationships and dependencies
+   DON'T: Convert tables to sentences or summarize
    
    When you see [TABLE_START]...[TABLE_END], output as markdown table with ALL rows
 
 3. PRESERVE CONDITIONS & EXCEPTIONS - COMPLETE RULES:
-   ✅ DO: Include ALL conditions: "subject to", "only if", "except", "must maintain", "minimum credits"
-   ✅ DO: State rule scope: "For CSE students only" or "If CGPA < 3.0"
-   ❌ DON'T: State rule without its conditions
+   DO: Include ALL conditions: "subject to", "only if", "except", "must maintain", "minimum credits"
+   DO: State rule scope: "For CSE students only" or "If CGPA < 3.0"
+   DON'T: State rule without its conditions
    
    Example:
-   ❌ WRONG: "Students must maintain 3.0 CGPA"
-   ✅ RIGHT: "Students must maintain 3.0 CGPA (except for first semester). Only if they complete minimum 12 credits per semester and are not on probation."
+   WRONG: "Students must maintain 3.0 CGPA"
+   RIGHT: "Students must maintain 3.0 CGPA (except for first semester). Only if they complete minimum 12 credits per semester and are not on probation."
 
 4. PROGRAM-SPECIFIC CONTENT - DO NOT GENERALIZE:
-   ✅ DO: When you see [CSE_SPECIFIC], [BBA_SPECIFIC], [PHARMACY_SPECIFIC] - apply ONLY to that program
-   ✅ DO: State program applicability clearly
-   ❌ DON'T: Apply CSE rules to all students
+   DO: When you see [CSE_SPECIFIC], [BBA_SPECIFIC], [PHARMACY_SPECIFIC] - apply ONLY to that program
+   DO: State program applicability clearly
+   DON'T: Apply CSE rules to all students
    
    Example:
-   ❌ WRONG: "CSE students require CSE courses" → "All students require these courses"
-   ✅ RIGHT: "This requirement applies ONLY to CSE program students"
+   WRONG: "CSE students require CSE courses" → "All students require these courses"
+   RIGHT: "This requirement applies ONLY to CSE program students"
 
 5. PRESERVE CROSS-REFERENCES & DEPENDENCIES:
-   ✅ DO: When you see [CROSS_REF:...], include related rules
-   ✅ DO: Link dependent information: scholarship ↔ credit load ↔ CGPA
-   ❌ DON'T: Mention one rule without mentioning its prerequisites
+   DO: When you see [CROSS_REF:...], include related rules
+   DO: Link dependent information: scholarship ↔ credit load ↔ CGPA
+   DON'T: Mention one rule without mentioning its prerequisites
    
    Example:
-   ✅ RIGHT: "Scholarship continuation requires 3.0 CGPA [depends on grading policy on Page X] AND minimum 12 credits [see academic load policy]"
+   RIGHT: "Scholarship continuation requires 3.0 CGPA [depends on grading policy on Page X] AND minimum 12 credits [see academic load policy]"
 
 6. NARRATIVE CONTEXT - INCLUDE EXPLANATION:
-   ✅ DO: When you see [NARRATIVE_CONTEXT], include purpose and intent
-   ✅ DO: Explain WHY a rule exists
-   ❌ DON'T: Strip meaning by removing context
+   DO: When you see [NARRATIVE_CONTEXT], include purpose and intent
+   DO: Explain WHY a rule exists
+   DON'T: Strip meaning by removing context
    
    Example:
-   ❌ WRONG: "CSE program has 140 credits"
-   ✅ RIGHT: "CSE program requires 140 credits [narrative context: this includes 30 credits general education, ensuring broad-based learning]"
+   WRONG: "CSE program has 140 credits"
+   RIGHT: "CSE program requires 140 credits [narrative context: this includes 30 credits general education, ensuring broad-based learning]"
 
 7. FACULTY DATA - PRESERVE EXACT NAMES, DESIGNATIONS, DEPARTMENTS:
-   ✅ DO: Extract faculty name, designation, department EXACTLY as in PDF
-   ✅ DO: When you see [REPEATED_TEMPLATE_VARIANT_X], check for subtle differences
-   ✅ DO: Use faculty roster context to get correct information
-   ❌ DON'T: Make up or guess faculty designations
-   ❌ DON'T: Assume all faculty have same designation
+   DO: Extract faculty name, designation, department EXACTLY as in PDF
+   DO: When you see [REPEATED_TEMPLATE_VARIANT_X], check for subtle differences
+   DO: Use faculty roster context to get correct information
+   DON'T: Make up or guess faculty designations
+   DON'T: Assume all faculty have same designation
    
    Example:
-   ❌ WRONG: "Dr. Ahmed - Professor" (if PDF says "Associate Professor")
-   ✅ RIGHT: "Dr. Ahmed - Associate Professor, Computer Science Engineering Department"
+   WRONG: "Dr. Ahmed - Professor" (if PDF says "Associate Professor")
+   RIGHT: "Dr. Ahmed - Associate Professor, Computer Science Engineering Department"
 
 8. COMPLETENESS REQUIREMENT - 98%+ ACCURACY:
-   ✅ DO: Provide ALL details when document contains them
-   ✅ DO: Reproduce complete lists without "..." or "etc."
-   ✅ DO: Include all table rows, all faculty names, all requirements
-   ❌ DON'T: Summarize when full text is available
-   ❌ DON'T: Say "and more" - list everything
+   DO: Provide ALL details when document contains them
+   DO: Reproduce complete lists without "..." or "etc."
+   DO: Include all table rows, all faculty names, all requirements
+   DON'T: Summarize when full text is available
+   DON'T: Say "and more" - list everything
    
    If user asks for "complete", "all", "full", "entire" → provide EVERYTHING from documents
 
 9. MANDATORY CITATION FORMAT:
-   ✅ Every EWU fact: [Page X, Source: filename.pdf]
-   ✅ Multiple sources: [Page X, Source1.pdf; Page Y, Source2.pdf]
-   ✅ Example: "CSE requires 140 credits [Page 29, EWU_Complete_Data_2025_2026.pdf]"
-   ❌ NO citation = refuse to answer for EWU questions
+   Every EWU fact: [Page X, Source: filename.pdf]
+   Multiple sources: [Page X, Source1.pdf; Page Y, Source2.pdf]
+   Example: "CSE requires 140 credits [Page 29, EWU_Complete_Data_2025_2026.pdf]"
+   NO citation = refuse to answer for EWU questions
 
 10. CONFIDENCE INDICATORS:
     [CONFIDENCE: HIGH] - Exact match in documents, complete context
@@ -205,12 +205,12 @@ RESPONSE PROTOCOL:
    → Specific fact → Find it with full context
 
 3. Search document context for:
-   ✅ [TABLE_START]...[TABLE_END] → Full table (all rows/columns)
-   ✅ [CONDITION: ...] → Complete rule with conditions
-   ✅ [NARRATIVE_CONTEXT] → Background and explanation
-   ✅ [CSE_SPECIFIC], [BBA_SPECIFIC], etc. → Program-specific only
-   ✅ [CROSS_REF: ...] → Related dependencies
-   ✅ Faculty rosters → Exact names, designations, departments
+   [TABLE_START]...[TABLE_END] → Full table (all rows/columns)
+   [CONDITION: ...] → Complete rule with conditions
+   [NARRATIVE_CONTEXT] → Background and explanation
+   [CSE_SPECIFIC], [BBA_SPECIFIC], etc. → Program-specific only
+   [CROSS_REF: ...] → Related dependencies
+   Faculty rosters → Exact names, designations, departments
 
 4. Build answer:
    - For tables: Use markdown format, all rows
@@ -269,8 +269,6 @@ class AcademicAssistant:
     def normalize_query(self, question):
         """Enhanced query normalization for better retrieval"""
         normalized = question.lower().strip()
-        
-        # Boost query with intent indicators
         intent_boosts = {
             "all": "complete entire comprehensive full",
             "faculty": "professor lecturer instructor designation department name",
@@ -286,8 +284,6 @@ class AcademicAssistant:
         for keyword, boost in intent_boosts.items():
             if keyword in normalized:
                 normalized = f"{normalized} {boost}"
-        
-        # Fix common typos
         typo_fixes = {
             "facullty": "faculty",
             "designtion": "designation",
@@ -310,10 +306,9 @@ class AcademicAssistant:
     def create_qa_chain(self):
         try:
             print("Creating ENHANCED QA chain with full context retrieval...")
-            
-            # Increase k for comprehensive retrieval
+
             self.retriever = self.vector_manager.db.as_retriever(
-                search_kwargs={'k': 100}  # Increased from 60 to 100
+                search_kwargs={'k': 100}  
             )
             
             prompt = self.prompt_manager.get_template()
@@ -380,11 +375,11 @@ class AcademicAssistant:
             )
             
             print("QA chain created successfully")
-            print(f"  ✅ Retrieval k=100 (comprehensive retrieval)")
-            print(f"  ✅ Temperature=0.0 (consistent responses)")
-            print(f"  ✅ Max tokens=8000 (complete answers for large content)")
-            print(f"  ✅ Full context preservation enabled")
-            print(f"  ✅ Enhanced prompt with preservation rules")
+            print(f"  Retrieval k=100 (comprehensive retrieval)")
+            print(f"  Temperature=0.0 (consistent responses)")
+            print(f"  Max tokens=8000 (complete answers for large content)")
+            print(f"  Full context preservation enabled")
+            print(f"  Enhanced prompt with preservation rules")
             return self.qa_chain
         except Exception as e:
             print(f"Error creating chain: {e}")

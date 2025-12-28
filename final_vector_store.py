@@ -54,15 +54,12 @@ class EnhancedVectorStoreCreator:
         matrix_indicators = ['peo', 'po', 'co', 'mapping', '✓', '×']
         list_indicators = text.count('\n•') + text.count('\n-') + text.count('\n*')
         numeric_indicators = len(re.findall(r'\d+\.\d+|\d+%|cgpa|gpa', text.lower()))
-        
         table_score = sum(indicator in text for indicator in table_indicators)
         matrix_score = sum(indicator in text.lower() for indicator in matrix_indicators)
         
-        # Detect faculty roster
         if 'professor' in text.lower() and 'designation' in text.lower():
             return 'faculty_roster'
         
-        # Detect structured rules with conditions
         if any(keyword in text.lower() for keyword in ['subject to', 'only if', 'except', 'must maintain', 'minimum credits']):
             return 'conditional_rules'
         
@@ -91,7 +88,6 @@ class EnhancedVectorStoreCreator:
     
     def preserve_table_structure(self, text):
         """Preserve table structure and relationships"""
-        # Mark table boundaries
         if '|' in text or any(indicator in text for indicator in ['─', '═', '┌', '┐']):
             text = f"[TABLE_START]\n{text}\n[TABLE_END]"
         
@@ -125,7 +121,6 @@ class EnhancedVectorStoreCreator:
     
     def preserve_cross_references(self, text):
         """Preserve cross-reference dependencies"""
-        # Mark section references
         text = re.sub(r'(see section|refer to|according to|as per|in accordance with)([^.]*\.)', 
                      r'[CROSS_REF: \1\2]', text, flags=re.IGNORECASE)
         
@@ -137,7 +132,7 @@ class EnhancedVectorStoreCreator:
             for j, text2 in enumerate(all_texts):
                 if i < j:
                     similarity = self.calculate_similarity(text1, text2)
-                    if 0.7 <= similarity < 1.0:  # Similar but not identical
+                    if 0.7 <= similarity < 1.0: 
                         all_texts[i] = f"[REPEATED_TEMPLATE_VARIANT_{i}]\n{text1}"
                         all_texts[j] = f"[REPEATED_TEMPLATE_VARIANT_{j}]\n{text2}"
         
@@ -186,23 +181,11 @@ class EnhancedVectorStoreCreator:
             
             content_type = self.detect_content_type(doc.page_content)
             doc.metadata['content_type'] = content_type
-            
-            # ENHANCEMENT: Preserve full section context
             doc.page_content = self.extract_full_section(doc.page_content)
-            
-            # ENHANCEMENT: Preserve table structures
             doc.page_content = self.preserve_table_structure(doc.page_content)
-            
-            # ENHANCEMENT: Preserve conditions and exceptions
             doc.page_content = self.preserve_conditions_and_exceptions(doc.page_content)
-            
-            # ENHANCEMENT: Mark program-specific content
             doc.page_content = self.mark_program_specific_content(doc.page_content)
-            
-            # ENHANCEMENT: Preserve cross-references
             doc.page_content = self.preserve_cross_references(doc.page_content)
-            
-            # ENHANCEMENT: Preserve narrative context
             doc.page_content = self.preserve_narrative_context(doc.page_content)
             
             doc.metadata['doc_id'] = f"{source_file}_{page_num}"
@@ -379,13 +362,13 @@ class EnhancedVectorStoreCreator:
             print("=" * 70)
             print("FIXED Vector store creation completed!")
             print("ENHANCEMENTS:")
-            print("  ✅ Full section context preserved")
-            print("  ✅ Tables & matrices structure maintained")
-            print("  ✅ Conditions & exceptions marked")
-            print("  ✅ Program-specific content tagged")
-            print("  ✅ Cross-references preserved")
-            print("  ✅ Narrative context included")
-            print("  ✅ Faculty data with names & designations")
+            print("  Full section context preserved")
+            print("  Tables & matrices structure maintained")
+            print("  Conditions & exceptions marked")
+            print("  Program-specific content tagged")
+            print("  Cross-references preserved")
+            print("  Narrative context included")
+            print("  Faculty data with names & designations")
             print("=" * 70 + "\n")
             
             return True
